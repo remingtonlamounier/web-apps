@@ -4,6 +4,7 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
+var crypto = require('crypto');
 
 module.exports = {
 
@@ -25,12 +26,15 @@ module.exports = {
       },
       telefone: {
           type: 'string',
-          size: 12,
-          required: true
+          size: 12
       },
       grupo: {
           model: 'grupo'
       }
+  },
+    
+  beforeCreate: function(values, next) {
+      values.senha = crypto.createHash('sha1').update(values.senha).digest('hex');
   }
 };
 
