@@ -9,17 +9,19 @@ module.exports = {
     // Override sails default "create" action
     create: function(req, res) {
         if (req.body.senha !== req.body.confirmaSenha) {
-            return res.badRequest('password and confirm password doesn\'t match');
+            return res.badRequest({error: 'password and confirm password doesn\'t match'});
         }
+        
+        delete req.body.confirmaSenha;
         
         Usuario.create(req.body).exec(function(err, user) {
             if (err) {
-                return res.json(err.status, {error: err});
+                return res.json(err.status, {error: err.summary});
             }
             
             Token.newToken(user, function(err, newToken) {
                 if (err) {
-                    return res.json(err.status, {error: err});
+                    return res.json(err.status, {error: err.summary});
                 }
                 
                 res.created({
@@ -35,12 +37,12 @@ module.exports = {
             password = req.param('senha');
         
         if (!email || !password) {
-            return res.badRequest('e-mail and password is required');
+            return res.badRequest({error: 'e-mail and password is required'});
         }
         
         Usuario.findOne({email: email, senha: password}, function(err, user) {
             if (!user) {
-                return res.notFound('invalid e-mail and/or password');
+                return res.notFound({error: 'invalid e-mail and/or password'});
             }
             
             Token.newToken(user, function(err, newToken) {

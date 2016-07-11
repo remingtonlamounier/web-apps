@@ -15,7 +15,7 @@ module.exports = {
       },
       tipo: {
           type: 'string',
-          enum: ['admins', 'usuarios', 'desenvolvedores']
+          enum: ['admins', 'users', 'develops']
       },
       usuarios: {
           collections: 'usuario',

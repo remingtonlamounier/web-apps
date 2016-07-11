@@ -26,6 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
+//  '*': true,
   '*': ['isAuthorized'],
     
   'UsuarioController': {

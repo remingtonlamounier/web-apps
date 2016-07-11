@@ -34,7 +34,8 @@ module.exports = {
   },
     
   beforeCreate: function(values, next) {
-      values.senha = crypto.createHash('sha1').update(values.senha).digest('hex');
+//      values.senha = crypto.createHash('sha1').update(values.senha).digest('hex');
+      next();
   }
 };
 
