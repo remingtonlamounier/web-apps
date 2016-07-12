@@ -13,7 +13,8 @@ module.exports = {
       key: {
           type: 'string',
           unique: true,
-          required: true
+          required: true,
+          size: 255
       },
       secret: {
           type: 'string',
@@ -23,21 +24,21 @@ module.exports = {
   },
     
   newToken: function(user, callback) {
-    var tokenSecret = crypto.randomBytes(32).toString('hex'),
-        payload = { id: user.id, nome: user.nome, email: user.email, grupo: user.grupo },
+    var self = this,
+        tokenSecret = crypto.randomBytes(32).toString('hex'),
+        payload = { id: user.id, nome: user.nome, grupo: user.grupo },
         token = {
             key: TokenService.sign(payload, tokenSecret),
             secret: tokenSecret
         };
 
-    Token.findOne({key: token.key}, function(err, finded) {
+    self.findOne({key: token.key}, function(err, finded) {
         if (finded) {
             callback(err, finded);
             return;
         }
         
-        Token.create(token).exec(callback);
+        self.create(token).exec(callback);
     });
   }
 };
-

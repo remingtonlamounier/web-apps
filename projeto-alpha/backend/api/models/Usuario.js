@@ -4,7 +4,6 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
-var crypto = require('crypto');
 
 module.exports = {
 
@@ -16,26 +15,24 @@ module.exports = {
       },
       email: {
           type: 'email',
-          uinique: true,
-          required: true
+          unique: true,
+          required: true,
+          size: 100
       },
       senha: {
           type: 'string',
           required: true,
-          minLength: 6
+          minLength: 6,
+          size: 128
+      },
+      grupo: {
+          type: 'string',
+          required: true,
+          enum: ['admins', 'develops', 'users']
       },
       telefone: {
           type: 'string',
           size: 12
-      },
-      grupo: {
-          model: 'grupo'
       }
-  },
-    
-  beforeCreate: function(values, next) {
-//      values.senha = crypto.createHash('sha1').update(values.senha).digest('hex');
-      next();
   }
 };
-

@@ -28,10 +28,10 @@ module.exports.policies = {
 
 //  '*': true,
   '*': ['isAuthorized'],
-    
+
   'UsuarioController': {
-      'create': true,
-      'login': true
+    'create': true,
+    'login': true
   }
 
   /***************************************************************************
