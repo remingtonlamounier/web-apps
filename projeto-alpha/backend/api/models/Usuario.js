@@ -33,6 +33,10 @@ module.exports = {
       telefone: {
           type: 'string',
           size: 12
+      },
+      projetos: {
+          collection: 'projeto',
+          via: 'usuario'
       }
   }
 };
