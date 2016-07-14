@@ -19,8 +19,7 @@ module.exports = {
           required: true
       },
       usuario: {
-          model: 'usuario',
-          required: true
+          model: 'usuario'
       },
       funcionalidades: {
           collection: 'funcionalidade',

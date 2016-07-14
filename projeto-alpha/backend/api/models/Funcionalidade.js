@@ -24,8 +24,7 @@ module.exports = {
           required: true
       },
       projeto: {
-          model: 'projeto',
-          required: true
+          model: 'projeto'
       }
   }
 };

@@ -21,7 +21,7 @@ module.exports = function(req, res, next) {
         
         TokenService.verify(token.key, token.secret, function(err, decoded) {
             if (err) {
-                return res.notFound({error: 'invalid authorization token or was expired'});
+                return res.notFound({error: 'authorization token was expired'});
             }
             
             req.token = decoded;

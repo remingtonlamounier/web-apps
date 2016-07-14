@@ -1,7 +1,14 @@
 module.exports = function(req, res, next) {
-    var userId = req.param('userId') || req.param('id');
-    if (!req.token || !userId || parseInt(userId) !== req.token.id) {
+    if (!req.token) {
         return res.forbidden({error: 'resource not allowed'});
     }
+    
+    req.options.values = req.options.values || {};
+    var usuario = req.options.values.usuario;
+    
+    if (usuario && parseInt(usuario) !== req.token.id) {
+        return res.forbidden({error: 'action not allowed'});
+    }
+    
     return next();
 };

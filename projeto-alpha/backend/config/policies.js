@@ -29,20 +29,6 @@ module.exports.policies = {
 //  '*': true,
   '*': ['isAuthorized','isAdmin'],
 
-  'UsuarioController': {
-    'create': true,
-    'login': true,
-    'find': ['isAuthorized','isOwner'],
-    'update': ['isAuthorized','isOwner']
-  },
-    
-  'ProjetoController': {
-    'create': ['isAuthorized'],
-    'find': ['isAuthorized','isDeveloper'],
-    'update': ['isAuthorized','isOwner'],
-    'destroy': ['isAuthorized','isOwner']
-  }
-
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *
@@ -63,4 +49,17 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+  'UsuarioController': {
+    'create': true,
+    'login': true,
+    'find': ['isAuthorized','filterByUser'],
+    'update': ['isAuthorized','filterByUser']
+  },
+    
+  'ProjetoController': {
+    '*': ['isAuthorized','isOwner'],
+    'create': ['isAuthorized','setLoggedUser'],
+    'find': ['isAuthorized','filterByUser']
+  }
 };
