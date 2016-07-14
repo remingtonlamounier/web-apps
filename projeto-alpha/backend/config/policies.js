@@ -27,19 +27,18 @@ module.exports.policies = {
   ***************************************************************************/
 
 //  '*': true,
-  '*': ['isAuthorized'],
+  '*': ['isAuthorized','isAdmin'],
 
   'UsuarioController': {
-    'findAll': ['isAuthorized','isAdmin'],
     'create': true,
     'login': true,
-    'update': ['isAuthorized','isOwner'],
-    'destroy': ['isAuthorized','isOwner']
+    'find': ['isAuthorized','isOwner'],
+    'update': ['isAuthorized','isOwner']
   },
     
   'ProjetoController': {
+    'create': ['isAuthorized'],
     'find': ['isAuthorized','isDeveloper'],
-    'findAll': ['isAuthorized','isAdmin'],
     'update': ['isAuthorized','isOwner'],
     'destroy': ['isAuthorized','isOwner']
   }
