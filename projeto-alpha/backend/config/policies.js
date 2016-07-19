@@ -53,13 +53,13 @@ module.exports.policies = {
   'UsuarioController': {
     'create': true,
     'login': true,
-    'find': ['isAuthorized','filterByUser'],
-    'update': ['isAuthorized','filterByUser']
+    'findOne': ['isAuthorized'],
+    'update': ['isAuthorized','isYourSelf']
   },
     
   'ProjetoController': {
-    '*': ['isAuthorized','isOwner'],
+    '*': ['isAuthorized','isMine'],
     'create': ['isAuthorized','setLoggedUser'],
-    'find': ['isAuthorized','filterByUser']
+    'find': ['isAuthorized','setLoggedUser']
   }
 };
