@@ -24,7 +24,21 @@ module.exports = {
           required: true
       },
       projeto: {
-          model: 'projeto'
+          model: 'projeto',
+          required: true
+      },
+      usuario: {
+          model: 'usuario',
+          required: true
+      },
+      criterios: {
+          collection: 'criterio',
+          via: 'funcionalidade'
       }
+  },
+
+  afterDestroy: function(deleteds, callback) {
+      var ids = deleteds.map(function(item) { return item.id; });
+      Criterio.destroy({funcionalidade: ids}).exec(callback);
   }
 };

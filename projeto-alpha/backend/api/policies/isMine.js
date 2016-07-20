@@ -3,19 +3,17 @@ module.exports = function(req, res, next) {
         return res.badRequest({error: 'token not found'});
     }
     
-    var model = sails.models[req.options.model],
-        modelId = req.param('id');
-    
+    var modelId = req.param('id'),
+        model = sails.models[req.options.model];
+
     if (!model || !modelId) {
-        return next();
+        return res.serverError({error: 'errors happen in the request', details: req.options});
     }
     
-    console.log(modelId);
-    model.findOne({id: parseInt(modelId)}).exec(function(err, record) {
+    model.findOne(parseInt(modelId)).exec(function(err, record) {
         if (err) {
             return res.badRequest(err);
         }
-        console.log(record);
         if (!record) {
             return res.notFound({error: 'resource not found'});
         }

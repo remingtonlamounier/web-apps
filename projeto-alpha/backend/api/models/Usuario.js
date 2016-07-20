@@ -33,6 +33,12 @@ module.exports = {
       telefone: {
           type: 'string',
           size: 12
+      },
+      toJSON: function() {
+          var model = this.toObject();
+          delete model.senha;
+          delete model.grupo;
+          return model;
       }
   }
 };

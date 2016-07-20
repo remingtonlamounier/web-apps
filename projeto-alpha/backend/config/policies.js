@@ -61,5 +61,11 @@ module.exports.policies = {
     '*': ['isAuthorized','isMine'],
     'create': ['isAuthorized','setLoggedUser'],
     'find': ['isAuthorized','setLoggedUser']
+  },
+
+  'FuncionalidadeController': {
+    '*': ['isAuthorized','isMine'],
+    'create': ['isAuthorized','setLoggedUser'],
+    'find': ['isAuthorized','setLoggedUser']
   }
 };

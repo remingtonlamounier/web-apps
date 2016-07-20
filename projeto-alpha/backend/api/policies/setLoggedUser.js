@@ -3,8 +3,8 @@ module.exports = function(req, res, next) {
         req.options.where = req.options.where || {};
         req.options.where.usuario = req.token.id;
     }
-    if (req.token && req.options.values) {
-        req.options.values.usuario = req.token.id;
+    if (req.token && req.body) {
+        req.body.usuario = req.token.id;
     }
     return next();
 };
