@@ -2,7 +2,7 @@ angular.module('alpha', ['ui.bootstrap','ngRoute','ngAnimate']);
 
 angular.module('alpha').config(function($routeProvider) {
 
-    $routeProvider.when('/home',{templateUrl: 'app/home.html'});
+    $routeProvider.when('/home',{templateUrl: 'app/home/page.html'});
     /* Add New Routes Above */
     $routeProvider.otherwise({redirectTo:'/home'});
 
