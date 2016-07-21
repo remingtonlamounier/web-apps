@@ -67,5 +67,11 @@ module.exports.policies = {
     '*': ['isAuthorized','isMine'],
     'create': ['isAuthorized','setLoggedUser'],
     'find': ['isAuthorized','setLoggedUser']
+  },
+    
+  'EquipeController': {
+    '*': ['isAuthorized','isMine'],
+    'create': ['isAuthorized','setLoggedUser'],
+    'find': ['isAuthorized','setLoggedUser']
   }
 };

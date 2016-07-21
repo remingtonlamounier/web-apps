@@ -27,9 +27,12 @@ module.exports = {
           model: 'usuario',
           required: true
       },
-      funcionalidades: {
-          collection: 'funcionalidade',
-          via: 'projeto'
+//      funcionalidades: {
+//          collection: 'funcionalidade',
+//          via: 'projeto'
+//      },
+      equipe: {
+          model: 'equipe'
       },
       toJSON: function() {
           var obj = this.toObject(),

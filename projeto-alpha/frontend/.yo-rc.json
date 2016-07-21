@@ -8,7 +8,7 @@
     "serviceDirectory": "service/",
     "inject": {
       "js": {
-        "file": "index.html",
+        "file": "app/start.html",
         "marker": "<!-- Add New Component JS Above -->",
         "template": "<script src=\"<%= filename %>\"></script>"
       },
