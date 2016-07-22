@@ -1,4 +1,7 @@
-<div class="col-md-12" ng-controller="PageCtrl">
+<div class="col-md-12" ng-controller="HomeCtrl">
+	<h1>Meus projetos</h1>
 
-
+	<div class="row" ng-repeat="item in projetos.data track by item.id">
+		{{item.descricao}}
+	</div>
 </div>
