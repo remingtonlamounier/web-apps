@@ -1,7 +1,14 @@
-<div class="col-md-12" ng-controller="HomeCtrl">
-	<h1>Meus projetos</h1>
+<div class="col-md-8" ng-controller="HomeCtrl">
+	<h1>Bem vindo ao Apps Company!</h1>
+		
+		<label for="recipient-name">Nesta primeira etapa, você deve descrever qual é o seu projeto.</label>
+		<br>
+		<label for="recipient-name">Conte-nos sobre ele.</label>
+		<textarea class="form-control"></textarea>
+		
+		 <a href="#/funcionalidade">Click aqui para Confirmar e dar continuidade ao projeto!</a> 
 
-	<div class="row" ng-repeat="item in projetos.data track by item.id">
-		{{item.descricao}}
+		 
+
 	</div>
 </div>
