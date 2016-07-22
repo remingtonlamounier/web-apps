@@ -23,5 +23,8 @@
     "karma-mocha-reporter": "~0.2.5",
     "karma-phantomjs-launcher": "^1.0.0",
     "load-grunt-tasks": "~0.2"
+  },
+  "dependencies": {
+    "grunt-ng-annotate": "^2.0.2"
   }
 }
