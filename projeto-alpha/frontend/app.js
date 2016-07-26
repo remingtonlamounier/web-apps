@@ -4,6 +4,7 @@ angular.module('alpha').config(function($routeProvider) {
 
     $routeProvider.when('/home',{templateUrl: 'app/home/page.html'});
     $routeProvider.when('/funcionalidade',{templateUrl: 'app/funcionalidade/page.html'});
+    $routeProvider.when('/projeto',{templateUrl: 'app/projeto/page.html'});
     /* Add New Routes Above */
     $routeProvider.otherwise({redirectTo:'/home'});
 

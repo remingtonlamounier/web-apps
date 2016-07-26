@@ -1,3 +1,8 @@
+<script src="app/projeto/page.js"></script>
+<script src="app/projeto/page.js"></script>
+<script src="app/projeto/page.js"></script>
+<script src="app/projeto/projeto.js"></script>
+<script src="partial/projeto/projeto.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,17 +49,34 @@ body {
 }
 .tmo_input{
         width:230px;
+        
+}
+
+.centralizar{
+    padding-left: 30%;
 }
 
 
 
 .border_login{
     border-style: double;
-    border-color: #F8F8FF;
+    border-color: #D3D3D3;
     width:260px;
     height:200px; 
-    background-color:#F8F8FF;
-    padding-top:0px;
+    background-color:#D3D3D3;
+    border-radius:10px;
+    padding-left: 10px;
+
+
+}
+.border_cadastro{
+    border-style: double;
+    border-color: #D3D3D3;
+    width:260px;
+    height:370px; 
+    background-color:#D3D3D3;
+    border-radius:10px;
+    padding-left: 10px;
 
 
 }
@@ -329,7 +351,7 @@ footer {
                 <a href="#contact" onclick=$ ( "#menu-close").click();>Contato</a>
             </li>
             <li>
-                <a href="#" onclick=$ ( "#menu-close").click();>Entrar</a>
+                <a href=""data-toggle="modal" data-target="#modalLogin" data-whatever="@fat" onclick=$ ( "#menu-close").click();>Entrar</a>
             </li>
         </ul>
     </nav>
@@ -444,7 +466,7 @@ footer {
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h3>Crie uma conta e comece agora sem compromisso!</h3>
-                    <button type="button" class="btn btn-lg btn-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Criar conta</button>
+                    <button type="button" class="btn btn-lg btn-light" data-toggle="modal" data-target="#modalCadastro" data-whatever="@fat">Criar conta</button>
                    
 <!--                    <a href="#" class="btn btn-lg btn-dark">Entrar!</a>-->
                 </div>
@@ -482,19 +504,20 @@ footer {
     </footer>
 
 
-<!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<!-- Modal cadastro -->
+        <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Cadastro</h4>
+                <h4 class="modal-title" id="exampleModalLabel">Crie sua conta na Apps Company</h4>
               </div>
               <div class="modal-body">
                 <form>
                   <div class="form-group">
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="centralizar">
+                            <div class="border_cadastro">
                             <label for="recipient-name" class="control-label">Nome:</label>
                                 <input type="text" class=" tmo_input form-control" placeholder="Nome"required>
                             <label for="recipient-name" class="control-label">Telefone:</label>
@@ -509,15 +532,8 @@ footer {
                                     
                                     <button type="button" class="btn btn-primary tmo_input">Confirmar Cadastro</button>
                         </div>
-                        
-                        <div class="col-xs-6 border_login">
-                            <label for="recipient-name" class="control-label">Login::</label>
-                                <input type="text" class=" tmo_input form-control" placeholder="E-mail"required>
-                            <label for="recipient-name" class="control-label">Senha:</label>
-                                <input type="password" class="tmo_input form-control" placeholder="Senha"required>
-                                <br>
-                                <button type="button" class="btn btn-primary tmo_input">Fazer login</button>
-                            </div>
+                        </div>
+                       
                         </div>
                   <br>
                   </div>
@@ -525,18 +541,58 @@ footer {
                 </form>
               </div>
               <div class="modal-footer">
+                 <a href=""data-toggle="modal" data-target="#modalLogin" data-whatever="@fat" onclick=$ ( "#menu-close").click();>Fazer login</a>
                 
               </div>
             </div>
           </div>
         </div>
 
-<!-- Modal -->
+<!-- Modal cadastro -->
+
+
+<!-- Modal login -->
+        <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Faça o login e acesse o Apps Company</h4>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <div class="row">
+                        <div class="centralizar">
+                            <div class="border_login">
+                                <label for="recipient-name" class="control-label">Entre com seu e-mail:</label>
+                                <input type="text" class=" tmo_input form-control" placeholder="E-mail"required>
+                            <label for="recipient-name" class="control-label">Digite sua Senha:</label>
+                                <input type="password" class="tmo_input form-control" placeholder="Senha"required>
+                                <br>
+                                <button type="button" class="btn btn-primary tmo_input">Fazer login</button>
+                                <br>
+                            </div>
+                            </div>
+                    </div>
+                
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a href="" >Esqueceu a senha?</a> 
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- Modal login -->
+
 
     <!-- Livereload script for development only (stripped during dist build) -->
     <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
 
     <!-- JS from Bower Components -->
+
     <script src="bower_components/less.js/dist/less.js" data-concat="false"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
