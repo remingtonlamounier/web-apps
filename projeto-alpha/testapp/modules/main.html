@@ -1,0 +1,25 @@
+<md-toolbar layout="row">
+    <md-button class="md-icon-button" ng-click="toggleMenu('left')" hide-gt-sm aria-label="Show Menu">
+        <md-icon class="fa-list"></md-icon>
+    </md-button>
+    <h1 class="md-toolbar-tools">Stater App</h1>
+</md-toolbar>
+
+<div layout="row" layout-fill>
+    <md-sidenav class="md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+        <md-list>
+            <md-list-item layout="column" layout-align="start start" ng-click="goTo('app.home')">
+                <md-icon class="fa-home"></md-icon>
+                Home
+            </md-list-item>
+            <md-list-item layout="column" layout-align="start start" ng-click="goTo('app.projeto')">
+                <md-icon class="fa-server"></md-icon>
+                Projetos
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
+
+    <md-content flex class="md-padding" ui-view>
+
+    </md-content>
+</div>

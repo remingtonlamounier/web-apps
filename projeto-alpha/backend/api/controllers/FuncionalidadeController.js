@@ -49,7 +49,7 @@ module.exports = {
             }
             
             if (!projeto || req.body.usuario !== projeto.usuario) {
-                return res.badRequest({error: "action not allowed"});
+                return res.forbidden({error: "action not allowed"});
             }
             
             saveModel(req.body);

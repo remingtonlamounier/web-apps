@@ -57,7 +57,7 @@ module.exports = {
                     return res.json(err.status, err);
                 }
                 
-                res.created({
+                res.ok({
                     usuario: user,
                     token: newToken.key
                 });
