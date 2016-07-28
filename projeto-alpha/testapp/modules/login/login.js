@@ -1,13 +1,19 @@
-angular.module('starterapp').controller('LoginCtrl', function($scope, $state, auth) {
+angular.module('starterapp').controller('LoginCtrl', function($scope, $state, $mdToast, auth) {
     $scope.usuario = {};
     
     $scope.login = function() {
         auth.authorize($scope.usuario, function(err) {
-            if (err) {
-                console.log(err);
+            if (!err) {
+                $state.go('app.home');
                 return;
             }
-            $state.go('app.home');
+            
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent(err)
+                    .position('top right')
+                    .hideDelay(5000)
+            );
         });
     };
 });

@@ -1,2 +1,24 @@
 <div ng-controller="HomeCtrl">
+    <md-card>
+        <md-card-header>
+            <md-card-avatar>
+                <md-icon class="fa-code"></md-icon>
+            </md-card-avatar>
+            <md-card-header-text>
+                <span class="md-title text-bold">Olá {{usuario.nome}}, seja bem vindo!</span>
+                <span class="md-subhead">Aqui você vai acompanhar o andamento dos seus projetos</span>
+            </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-title">Você ainda não criou nenhum projeto</span>
+                <span class="md-subhead">Para começar clique no botão abaixo</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center" layout-padding>
+            <a href="#/projeto" class="md-button md-raised md-primary">
+                Criar projeto
+            </a>
+        </md-card-actions>
+    </md-card>
 </div>

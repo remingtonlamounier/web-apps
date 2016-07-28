@@ -1,4 +1,4 @@
-angular.module('starterapp').factory('auth', function($http, $mdToast) {
+angular.module('starterapp').factory('auth', function($http) {
     var baseUrl = 'http://localhost:1337',
         auth = {
             authorize: function(user, callback) {
@@ -17,8 +17,7 @@ angular.module('starterapp').factory('auth', function($http, $mdToast) {
                     
                     callback();
                 }, function(res) {
-                    var message = 'Ocorreu um erro inesperado',
-                        toast;
+                    var message = 'Ocorreu um erro inesperado';
 
                     if (res.status === 404) {
                         message = 'E-mail e/ou senha inválidos';
@@ -26,12 +25,7 @@ angular.module('starterapp').factory('auth', function($http, $mdToast) {
                         message = res.data.error;
                     }
                     
-                    toast = $mdToast.simple()
-                                .textContent(message)
-                                .position('top right')
-                                .hideDelay(5000);
-                    
-                    $mdToast.show(toast);
+                    callback(message);
                 });
             },
             

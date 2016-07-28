@@ -2,22 +2,41 @@
     <md-button class="md-icon-button" ng-click="toggleMenu('left')" hide-gt-sm aria-label="Show Menu">
         <md-icon class="fa-list"></md-icon>
     </md-button>
+<!--
+    <a ng-href="" class="md-button md-fab md-warn md-mini" hide-sm hide-xs>
+        <md-icon class="fa-th-large"></md-icon>
+    </a>
+-->
     <h1 class="md-toolbar-tools">Stater App</h1>
 </md-toolbar>
 
-<div layout="row" layout-fill>
-    <md-sidenav class="md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-        <md-list>
-            <md-list-item layout="column" layout-align="start start" ng-click="goTo('app.home')">
+<div layout="row" flex>
+    <md-sidenav layout="column" class="md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" style="max-width:260px">
+        <md-list ng-click="toggleMenu('left')">
+            <md-list-item role="link" href="#/home">
                 <md-icon class="fa-home"></md-icon>
-                Home
+                <p class="md-list-item-text">
+                    Home
+                </p>
             </md-list-item>
-            <md-list-item layout="column" layout-align="start start" ng-click="goTo('app.projeto')">
+            <md-list-item role="link" href="#/projeto">
                 <md-icon class="fa-server"></md-icon>
-                Projetos
+                <p class="md-list-item-text">
+                    Projetos
+                </p>
             </md-list-item>
+            <div ng-if="isDeveloper()">
+                <md-divider></md-divider>
+                <md-subheader class="md-no-sticky">Desenvolvedores</md-subheader>
+                <md-list-item role="link" href="#/taskboard">
+                    <md-icon class="fa-gear"></md-icon>
+                    <p class="md-list-item-text">
+                        Taskboard
+                    </p>
+                </md-list-item>
+            </div>
         </md-list>
-    </md-sidenav>
+    </md-sidenav>    
 
     <md-content flex class="md-padding" ui-view>
 

@@ -6,6 +6,14 @@
     font-size: 1.5em;
 }
 
-.md-icon, .md-icon-button {
+md-icon, .md-icon-button {
     height: auto !important;
+}
+
+.md-fab.md-fab-bottom-right {
+    position: fixed !important;
+}
+
+.text-bold {
+    font-weight: bold;
 }

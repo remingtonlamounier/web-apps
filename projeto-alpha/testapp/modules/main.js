@@ -1,10 +1,10 @@
 angular.module('starterapp')
-.controller('MainCtrl', function($scope, $mdSidenav, $state) {
+.controller('MainCtrl', function($scope, $mdSidenav, auth) {
     $scope.toggleMenu = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
     
-    $scope.goTo = function(state) {
-        $state.go(state);
+    $scope.isDeveloper = function() {
+        return auth.getUser().grupo === 'develop';
     };
 });

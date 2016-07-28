@@ -1,0 +1,55 @@
+<div ng-controller="ProjetoCtrl">
+    <md-card>
+        <md-card-header>
+            <md-card-avatar>
+                <md-icon class="fa-code"></md-icon>
+            </md-card-avatar>
+            <md-card-header-text>
+                <span class="md-headline">Projetos</span>
+                <span class="md-subhead">Este é o centro de criação dos seus projetos.</span>
+            </md-card-header-text>
+        </md-card-header>
+        <img src="./img/callout.jpg" class="md-card-image">
+        <md-card-content>
+            <h2 class="md-title">Passo 1</h2>
+            <p class="md-body-1">
+                Para criar um projeto clique no botão <md-icon class="fa-plus"></md-icon> e informe uma descrição para o projeto. Por exemplo, supondo que você gostaria de um site para divulgar seu trabalho:
+            </p>
+            <div class="inset">
+                <p class="md-caption">
+                    <strong>Descrição</strong>: Como consultor gostaria de um site para divulgar os tipos de consultoria que presto as empresas.
+                </p>
+            </div>
+            <h2 class="md-title">Passo 2</h2>
+            <p class="md-body-1">
+                Logo em seguida você deve informar quais as funcionalidades que você espera no seu projeto respondendo apenas 3 perguntas. Vamos continuar o exemplo acima e descrever uma funcionalidade:
+            </p>
+            <div class="inset">
+                <p class="md-caption">
+                    <strong>Ator (quem vai executar esta ação)</strong>: Administrador
+                </p>
+                <p class="md-caption">
+                    <strong>Descrição (o quê o ator gostaria de fazer)</strong>: Gostaria de publicar toda semana fotos das minhas últimas consultorias.
+                </p>
+                <p class="md-caption">
+                    <strong>Objetivo (o quê o ator espera com esta funcionalidade)</strong>: Para que os visitantes vejam os frutos do meu trabalho.
+                </p>
+            </div>
+            <h2 class="md-title">Passo 3</h2>
+            <p class="md-body-1">
+                Uma funcionalidade pode conter critérios de aceitação, neste caso você também deve informá-los. Veja um exemplo baseado na funcionalidade do passo 2:
+            </p>
+            <div class="inset">
+                <p class="md-caption">
+                    <strong>Critério</strong>: O sistema deve bloquear um visitante acessar esta área do site.
+                </p>
+            </div>
+        </md-card-content>
+    </md-card>
+    <md-button class="md-fab md-primary md-fab-bottom-right" aria-label="Adicionar" ng-click="show($event)">
+        <md-tooltip>
+            Criar projeto
+        </md-tooltip>
+        <md-icon class="fa-plus"></md-icon>
+    </md-button>
+</div>

@@ -16,6 +16,12 @@ angular.module('starterapp', ['ui.router','ngMaterial'])
         templateUrl: 'modules/home/home.html',
         requireAuth: true
     });
+    
+    $stateProvider.state('app.projeto', {
+        url: '/projeto',
+        templateUrl: 'modules/projeto/projeto.html',
+        requireAuth: true
+    });
     /* Add New States Above */
     
     $mdIconProvider.defaultFontSet( 'fa' );

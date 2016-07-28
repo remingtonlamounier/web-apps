@@ -1,20 +1,22 @@
 <div layout="row" layout-align="center center" layout-fill ng-controller="LoginCtrl">
-    <div class="md-whiteframe-z1" layout="column" flex-md="30">
+    <div class="md-whiteframe-z1" layout="column" style="width:90%;max-width:400px">
         <md-toolbar class="md-primary">
             <h1 class="md-toolbar-tools">Log in</h1>
         </md-toolbar>
         <div layout-padding>
-            <md-input-container class="md-block">
+            <md-input-container class="md-block md-icon-float">
                 <label>E-mail</label>
+                <md-icon class="fa-envelope-o"></md-icon>
                 <input type="email" ng-model="usuario.email">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Senha</label>
+                <md-icon class="fa-key"></md-icon>
                 <input type="password" ng-model="usuario.senha">
             </md-input-container>
-            <div layout="row" layout-sm="column" layout-align="center">
-                <md-button class="md-raised" ng-click="login()">Entrar</md-button>
-                <md-button class="md-raised md-primary" href="/#create">Criar Conta</md-button>
+            <div layout="column" layout-align="center">
+                <md-button class="md-raised md-primary" ng-click="login()">Entrar</md-button>
+                <md-button class="md-primary" href="/#create">Criar Conta</md-button>
             </div>
         </div>
     </div>
