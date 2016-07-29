@@ -1,4 +1,6 @@
-angular.module('starterapp').controller('CadProjetoCtrl', function($scope, $mdDialog) {
+angular.module('starterapp').controller('CadProjetoCtrl', function($scope, $mdDialog, projeto) {
+    $scope.projeto = projeto;
+    
     $scope.cancel = function() {
         $mdDialog.hide();
     };

@@ -60,7 +60,7 @@ module.exports = function (grunt) {
         options: {
             jshintrc: '.jshintrc'
         },
-        src: [createFolderGlobs('*.js'),'!js/ojs-db.min.js']
+        src: [createFolderGlobs('*.js'),'!js/ojs-db.min.js','!modules/utils/dao.js']
       }
     },
     clean: {

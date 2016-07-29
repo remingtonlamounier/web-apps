@@ -6,12 +6,37 @@
     font-size: 1.5em;
 }
 
+.fa-question:before {
+    margin: 0 4px;
+}
+
 md-icon, .md-icon-button {
     height: auto !important;
 }
 
 .md-fab.md-fab-bottom-right {
     position: fixed !important;
+}
+
+md-card md-toolbar {
+    min-height: 0;
+}
+
+md-card .md-toolbar-tools {
+    height: 48px;
+    background-color: white !important;
+}
+
+md-card .md-toolbar-tools .md-icon-button {
+    margin: 0;
+}
+
+md-card .md-toolbar-tools, md-card .md-toolbar-tools md-icon {
+    color: #333;
+}
+
+md-card .md-toolbar-tools md-icon {
+    font-size: 16px;
 }
 
 .text-bold {

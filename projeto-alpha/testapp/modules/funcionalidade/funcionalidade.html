@@ -1,8 +1,8 @@
-<md-dialog aria-label="Cadastrar Projeto" flex-gt-sm="40" ng-cloak>
-    <form name="cadproj" novalidate>
+<md-dialog aria-label="Cadastrar Funcionalidade" flex-gt-sm="40" ng-cloak>
+    <form name="cadform" novalidate>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Criar projeto</h2>
+                <h2>Nova Funcionalidade</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()" aria-label="Cancelar">
                     <md-icon class="fa-close"></md-icon>
@@ -12,16 +12,16 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <md-input-container class="md-block">
-                    <label>Descrição</label>
-                    <textarea name="descricao" ng-model="projeto.descricao" cols="5" md-maxlength="255"></textarea>
+                    <label>Ator</label>
+                    <input type="text" name="ator" ng-model="funcionalidade.ator" placeholder="Quem? A pessoa que executará a ação...">
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>Urgência</label>
-                    <md-select ng-model="projeto.urgencia">
-                        <md-option value="baixa">Baixa</md-option>
-                        <md-option value="media">Média</md-option>
-                        <md-option value="alta">Alta</md-option>
-                    </md-select>
+                    <label>Descrição</label>
+                    <textarea name="descricao" ng-model="funcionalidade.descricao" cols="5" md-maxlength="255" placeholder="O quê? A ação que será executada..."></textarea>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Objetivo</label>
+                    <textarea name="objetivo" ng-model="funcionalidade.objetivo" cols="5" md-maxlength="255" placeholder="Para quê? Qual a finalidade desta ação..."></textarea>
                 </md-input-container>
             </div>
         </md-dialog-content>

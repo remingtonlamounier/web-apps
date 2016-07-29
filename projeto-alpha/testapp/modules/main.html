@@ -1,4 +1,4 @@
-<md-toolbar layout="row">
+<md-toolbar layout="row" layout-align-gt-sm="center center">
     <md-button class="md-icon-button" ng-click="toggleMenu('left')" hide-gt-sm aria-label="Show Menu">
         <md-icon class="fa-list"></md-icon>
     </md-button>
@@ -7,11 +7,11 @@
         <md-icon class="fa-th-large"></md-icon>
     </a>
 -->
-    <h1 class="md-toolbar-tools">Stater App</h1>
+    <h3>Starter App</h3>
 </md-toolbar>
 
 <div layout="row" flex>
-    <md-sidenav layout="column" class="md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" style="max-width:260px">
+    <md-sidenav layout="column" class="md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
         <md-list ng-click="toggleMenu('left')">
             <md-list-item role="link" href="#/home">
                 <md-icon class="fa-home"></md-icon>
@@ -36,9 +36,9 @@
                 </md-list-item>
             </div>
         </md-list>
-    </md-sidenav>    
+    </md-sidenav>
 
-    <md-content flex class="md-padding" ui-view>
+    <md-content flex class="md-padding" style="background-color:#f0f0f0" ui-view>
 
     </md-content>
 </div>

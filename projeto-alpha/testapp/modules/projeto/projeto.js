@@ -1,7 +1,11 @@
-angular.module('starterapp').controller('ProjetoCtrl', function($scope, $mdDialog, $mdMedia) {
-    $scope.projeto = {};
+angular.module('starterapp').controller('ProjetoCtrl', function($scope, $mdDialog, $mdMedia, auth, dao) {
+    $scope.usuario = auth.getUser();
+    $scope.projetos = dao.getProjetos(function(results) {
+        $scope.projeto = results[0] || {};
+    });
+    $scope.funcionalidades = dao.getFuncionalidades();
     
-    $scope.show = function(event) {
+    $scope.openForm = function(event) {
         var useFullScreen = $mdMedia('sm') || $mdMedia('xs');
         
         $mdDialog.show({
@@ -10,11 +14,40 @@ angular.module('starterapp').controller('ProjetoCtrl', function($scope, $mdDialo
             parent: angular.element(document.body),
             targetEvent: event,
             fullscreen: useFullScreen,
-            locals: $scope.projeto,
-            bindToController: true
+            locals: { projeto: $scope.projeto }
         })
         .then(function(answer) {
-            console.log(answer);
+            if (answer) {
+                $scope.projetos.save(answer);
+                $scope.projetos.post();
+                $scope.projeto = answer;
+            }
         });
-    }
+    };
+    
+    $scope.addFunctionality = function(event) {
+        console.log(event);
+        var useFullScreen = $mdMedia('sm') || $mdMedia('xs');
+        
+        $mdDialog.show({
+            controller: 'FuncionalidadeCtrl',
+            templateUrl: './modules/funcionalidade/funcionalidade.html',
+            parent: angular.element(document.body),
+            targetEvent: event,
+            fullscreen: useFullScreen
+        })
+        .then(function(answer) {
+            if (answer) {
+                answer.projeto = $scope.projeto.id;
+                $scope.funcionalidades.save(answer);
+                $scope.funcionalidades.post();
+            }
+        });
+    };
+    
+    $scope.deleteProject = function(event) {
+        $scope.projetos.delete($scope.projeto);
+        $scope.projetos.post();
+        $scope.projeto = {};
+    };
 });

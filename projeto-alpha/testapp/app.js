@@ -26,8 +26,7 @@ angular.module('starterapp', ['ui.router','ngMaterial'])
     
     $mdIconProvider.defaultFontSet( 'fa' );
     
-    $mdThemingProvider.theme('default')
-        .primaryPalette('blue');
+    $mdThemingProvider.theme('default').primaryPalette('blue');
 
     $urlRouterProvider.otherwise('/home');
 })

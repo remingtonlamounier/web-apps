@@ -5,48 +5,62 @@
                 <md-icon class="fa-code"></md-icon>
             </md-card-avatar>
             <md-card-header-text>
-                <span class="md-headline">Projetos</span>
-                <span class="md-subhead">Este é o centro de criação dos seus projetos.</span>
+                <span class="md-headline-4">Sr.(a) {{usuario.nome}}</span>
+                <span class="md-caption">Seja bem vindo a plataforma</span>
             </md-card-header-text>
         </md-card-header>
-        <img src="./img/callout.jpg" class="md-card-image">
-        <md-card-content>
-            <h2 class="md-title">Passo 1</h2>
+        <md-card-content ng-if="!projetos.data.length">
+            <span class="md-headline-4">Você não criou nenhum projeto</span>
             <p class="md-body-1">
-                Para criar um projeto clique no botão <md-icon class="fa-plus"></md-icon> e informe uma descrição para o projeto. Por exemplo, supondo que você gostaria de um site para divulgar seu trabalho:
+                Para começar clique no botão <i class="fa fa-plus"></i> abaixo e siga as instruções.
             </p>
-            <div class="inset">
-                <p class="md-caption">
-                    <strong>Descrição</strong>: Como consultor gostaria de um site para divulgar os tipos de consultoria que presto as empresas.
-                </p>
-            </div>
-            <h2 class="md-title">Passo 2</h2>
-            <p class="md-body-1">
-                Logo em seguida você deve informar quais as funcionalidades que você espera no seu projeto respondendo apenas 3 perguntas. Vamos continuar o exemplo acima e descrever uma funcionalidade:
-            </p>
-            <div class="inset">
-                <p class="md-caption">
-                    <strong>Ator (quem vai executar esta ação)</strong>: Administrador
-                </p>
-                <p class="md-caption">
-                    <strong>Descrição (o quê o ator gostaria de fazer)</strong>: Gostaria de publicar toda semana fotos das minhas últimas consultorias.
-                </p>
-                <p class="md-caption">
-                    <strong>Objetivo (o quê o ator espera com esta funcionalidade)</strong>: Para que os visitantes vejam os frutos do meu trabalho.
-                </p>
-            </div>
-            <h2 class="md-title">Passo 3</h2>
-            <p class="md-body-1">
-                Uma funcionalidade pode conter critérios de aceitação, neste caso você também deve informá-los. Veja um exemplo baseado na funcionalidade do passo 2:
-            </p>
-            <div class="inset">
-                <p class="md-caption">
-                    <strong>Critério</strong>: O sistema deve bloquear um visitante acessar esta área do site.
-                </p>
-            </div>
         </md-card-content>
     </md-card>
-    <md-button class="md-fab md-primary md-fab-bottom-right" aria-label="Adicionar" ng-click="show($event)">
+
+    <md-card ng-if="projetos.data.length">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h5>Projeto</h5>
+                <span flex></span>
+                <md-button class="md-icon-button" aria-label="Alterar" ng-click="openForm($event)">
+                    <md-icon class="fa-pencil"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Excluir" ng-click="deleteProject($event)">
+                    <md-icon class="fa-trash"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        
+        <md-card-header>
+            <md-card-header-text>
+                <span class="md-subhead">{{projeto.descricao}}</span>
+            </md-card-header-text>
+        </md-card-header>
+        
+        <md-card-actions layout="column" layout-align="start start" layout-gt-sm="row">
+            <md-button class="md-primary" ng-click="addFunctionality($event)">
+                <md-icon class="fa-plus"></md-icon>
+                Funcionalidade
+            </md-button>
+        </md-card-actions>
+        
+        <md-card-content ng-if="funcionalidades.data.length">
+            <md-divider></md-divider>
+            <md-list>
+                <md-list-item class="md-2-line" ng-repeat="item in funcionalidades.data">
+                    <div class="md-list-item-text">
+                        <h3>{{item.ator}}</h3>
+                        <p>
+                            {{item.descricao}}
+                        </p>
+                    </div>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-card-content>
+    </md-card>
+    
+    <md-button class="md-fab md-primary md-fab-bottom-right" aria-label="Adicionar" ng-if="!projetos.data.length" ng-click="openForm($event)">
         <md-tooltip>
             Criar projeto
         </md-tooltip>
