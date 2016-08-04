@@ -1,10 +1,12 @@
-angular.module('starterapp')
-.controller('MainCtrl', function($scope, $mdSidenav, auth) {
+angular.module('starterapp').controller('MainCtrl', function($scope, $mdSidenav, auth) {
+    $scope.usuario = auth.getUser();
+    
     $scope.toggleMenu = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
-    
+        
     $scope.isDeveloper = function() {
-        return auth.getUser().grupo === 'develop';
-    };
+        var grupo = auth.getUser().grupo;
+        return grupo === 'develop' || grupo === 'admin';
+    };    
 });

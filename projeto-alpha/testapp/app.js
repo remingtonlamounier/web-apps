@@ -10,17 +10,15 @@ angular.module('starterapp', ['ui.router','ngMaterial'])
         templateUrl: 'modules/main.html',
         controller: 'MainCtrl'
     });
-    
+        
     $stateProvider.state('app.home', {
         url: '/home',
-        templateUrl: 'modules/home/home.html',
-        requireAuth: true
+        templateUrl: 'modules/home/home.html'
     });
     
     $stateProvider.state('app.projeto', {
         url: '/projeto',
-        templateUrl: 'modules/projeto/projeto.html',
-        requireAuth: true
+        templateUrl: 'modules/projeto/projeto.html'
     });
     /* Add New States Above */
     
