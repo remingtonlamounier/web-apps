@@ -5,7 +5,7 @@
     <h3>Apps Company</h3>
 </md-toolbar>
 
-<div layout="row" flex style="background-color:#f0f0f0">
+<div layout="row" class="darkwhite-bg" flex>
     <md-sidenav class="md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
 
         <md-list ng-click="toggleMenu('left')">
@@ -18,8 +18,8 @@
                 </p>
             </md-list-item>
             
-            <md-list-item role="link" href="#/projeto">
-                <md-icon class="fa-tasks"></md-icon>
+            <md-list-item role="link" href="#/projetos">
+                <md-icon class="fa-puzzle-piece"></md-icon>
                 <p class="md-list-item-text">
                     Projetos
                 </p>
@@ -29,13 +29,6 @@
                 <md-divider></md-divider>
                 <md-subheader class="md-no-sticky">Desenvolvedores</md-subheader>
                 
-                <md-list-item role="link" href="#/estorias">
-                    <md-icon class="fa-book"></md-icon>
-                    <p class="md-list-item-text">
-                        Estórias de Usuário
-                    </p>
-                </md-list-item>
-                
                 <md-list-item role="link" href="#/taskboard">
                     <md-icon class="fa-th-large"></md-icon>
                     <p class="md-list-item-text">
@@ -43,18 +36,20 @@
                     </p>
                 </md-list-item>
                 
-                <md-list-item role="link" href="#/equipes">
+<!--
+                <md-list-item role="link" href="#/equipe">
                     <md-icon class="fa-users"></md-icon>
                     <p class="md-list-item-text">
-                        Minhas Equipes
+                        Minha Equipe
                     </p>
                 </md-list-item>
+-->
             </div>
     
         </md-list>
     </md-sidenav>
 
-    <div ui-view flex>
+    <md-content class="darkwhite-bg" ui-view flex>
 
-    </div>
+    </md-content>
 </div>

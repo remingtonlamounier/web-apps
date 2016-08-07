@@ -10,10 +10,17 @@
         <md-divider></md-divider>
         
         <md-card-content>
-            <div ng-if="!projetos.data.length">
+            <div ng-if="usuario.grupo === 'user' && !projetos.data.length">
                 <h3 class="md-title">Vamos começar?</h3>
                 <p class="md-body-1">
                     Crie um projeto acessando o menu esquerdo "Projetos" e depois siga as instruções.
+                </p>
+            </div>
+            
+            <div ng-if="usuario.grupo === 'develop' && !atividades.data.length">
+                <h3 class="md-title">Hey desenvolvedor!</h3>
+                <p class="md-body-1">
+                    Comece a trabalhar em um projeto agora, se inscreva nos projetos disponíveis.
                 </p>
             </div>
             

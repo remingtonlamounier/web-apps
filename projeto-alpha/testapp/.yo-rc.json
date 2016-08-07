@@ -12,6 +12,12 @@
         "marker": "<!-- Add New Component JS Above -->",
         "template": "<script src=\"<%= filename %>\"></script>"
       }
-    }
+    },
+    "modules": [
+      {
+        "name": "estoria",
+        "file": "modules\\develop\\projeto\\estoria.js"
+      }
+    ]
   }
 }

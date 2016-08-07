@@ -1,4 +1,4 @@
-angular.module('starterapp', ['ui.router','ngMaterial'])
+angular.module('starterapp', ['ui.router', 'ngMaterial'])
 
 .config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $mdThemingProvider) {
     $stateProvider.state('login', {
@@ -13,13 +13,26 @@ angular.module('starterapp', ['ui.router','ngMaterial'])
         
     $stateProvider.state('app.home', {
         url: '/home',
-        templateUrl: 'modules/home/home.html'
+        templateUrl: 'modules/home/home.html',
+        requireAuth: true
     });
     
     $stateProvider.state('app.projeto', {
-        url: '/projeto',
-        templateUrl: 'modules/projeto/projeto.html'
+        url: '/projetos',
+        templateProvider: ['$templateFactory', 'auth', function($templateFactory, auth) {
+            var isDeveloper = auth.getUser().grupo === 'develop' || auth.getUser().grupo === 'admin',
+                url = isDeveloper ? 'modules/develop/projeto/projeto.html' : 'modules/projeto/projeto.html';
+            return $templateFactory.fromUrl(url);
+        }],
+        requireAuth: true
     });
+    
+    $stateProvider.state('app.estoria', {
+        url: '/projeto/:id',
+        templateUrl: 'modules/develop/estoria/estoria.html',
+        requireAuth: true
+    });    
+    
     /* Add New States Above */
     
     $mdIconProvider.defaultFontSet( 'fa' );

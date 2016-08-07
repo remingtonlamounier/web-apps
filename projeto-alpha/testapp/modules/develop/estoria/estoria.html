@@ -1,0 +1,67 @@
+<div ng-controller="DevEstoriaCtrl">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-title">Estórias de usuário</span>
+                <span class="md-subhead">Adicione, altere, exclua estórias...</span>
+            </md-card-title-text>
+        </md-card-title>
+        
+        <md-card-content>
+
+            <div ng-if="!estorias.data.length">
+                <h3 class="md-title">Criando estórias</h3>
+                <p class="md-body-1">
+                    Clique no botão <i class="fa fa-plus"></i> abaixo, em seguida descreva de forma simples a estória do usuário de acordo com o quê ele deseja. Particione os desejos do usuário em várias estórias para facilitar as sprints e se necessário informe os critérios de aceitação. Por exemplo:
+                </p>
+                <p class="example">
+                    <strong>Desejo do usuário</strong>:<br>
+                    Como consultor gostaria de um site para divulgar o meu trabalho. O site precisa ter uma área administrativa para que eu possa publicar fotos e escrever artigos, assim os visitantes poderam ver o trabalho que presto para as empresas.
+                </p>
+                <div class="example">
+                    <strong>Estória 1</strong>:<br>
+                    Como administrador gostaria publicar fotos no site para que os visitantes conheçam o meu trabalho.<br>
+                    <strong>Critérios de aceitação</strong>:<br>
+                    <li>Bloquear acesso a usuários não autorizados nesta área</li>
+                </div>
+                <div class="example">
+                    <strong>Estória 2</strong>:<br>
+                    Como administrador gostaria escrever artigos para o site para que o site atraia visitantes pelo conteúdo.<br>
+                    <strong>Critérios de aceitação</strong>:<br>
+                    <li>Bloquear acesso a usuários não autorizados nesta área</li>
+                </div>
+            </div>
+            
+<!--
+            <div class="md-whiteframe-z1 inset">
+                <h3 class="md-title">{{projeto.nome}}</h3>
+                <p class="md-body-1">
+                    {{projeto.descricao}}
+                </p>
+            </div>
+-->
+            
+            <md-list layout-gt-sm="row">
+                <md-list-item flex-gt-sm="50" class="md-whiteframe-z1 md-2-line" role="link" ng-repeat="item in estorias.data">
+                    <div class="md-list-item-text inset" ng-click="editStory($event, item)">
+                        <h3>{{item.ator}}</h3>
+                        <p>{{item.descricao}}</p>
+                    </div>
+                    <md-button class="md-icon-button" aria-label="Excluir" ng-click="delStory($event, item)">
+                        <md-tooltip>
+                            Excluir Estória
+                        </md-tooltip>
+                        <md-icon class="fa-trash"></md-icon>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-card-content>
+    </md-card>
+    
+    <md-button class="md-fab md-primary md-fab-bottom-right" aria-label="Adicionar" ng-click="addStory($event)">
+        <md-tooltip>
+            Adicionar Estória
+        </md-tooltip>
+        <md-icon class="fa-plus"></md-icon>
+    </md-button>
+</div>
