@@ -22,6 +22,13 @@ angular.module('starterapp', ['ui.router','ngMaterial'])
         templateUrl: 'modules/projeto/projeto.html',
         requireAuth: true
     });
+
+
+     $stateProvider.state('app.treinamento', {
+        url: '/treinamento',
+        templateUrl: 'modules/treinamento/treinamento.html',
+        requireAuth: true
+    });
     /* Add New States Above */
     
     $mdIconProvider.defaultFontSet( 'fa' );
@@ -29,24 +36,4 @@ angular.module('starterapp', ['ui.router','ngMaterial'])
     $mdThemingProvider.theme('default').primaryPalette('blue');
 
     $urlRouterProvider.otherwise('/home');
-})
-
-.run(function($rootScope, $state, auth) {
-    $rootScope.safeApply = function(fn) {
-        var phase = $rootScope.$$phase;
-        if (phase === '$apply' || phase === '$digest') {
-            if (fn && (typeof(fn) === 'function')) {
-                fn();
-            }
-        } else {
-            this.$apply(fn);
-        }
-    };
-
-    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-        if (toState.requireAuth && !auth.isAuthorized()) {
-            $state.transitionTo('login');
-            event.preventDefault();
-        }
-    });
 });
