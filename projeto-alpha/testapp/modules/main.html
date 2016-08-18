@@ -1,31 +1,31 @@
 <md-toolbar layout="row" layout-align-gt-sm="center center">
-    <md-button class="md-icon-button" ng-click="toggleMenu('left')" hide-gt-sm aria-label="Show Menu">
+    <md-button class="md-icon-button" ng-click="toggleMenu('left')" hide-gt-sm aria-label="Menu">
         <md-icon class="fa-list"></md-icon>
     </md-button>
-<!--
-    <a ng-href="" class="md-button md-fab md-warn md-mini" hide-sm hide-xs>
-        <md-icon class="fa-th-large"></md-icon>
-    </a>
--->
-    <h3>Starter App</h3>
+    <h3>Apps Company</h3>
 </md-toolbar>
 
-<div layout="row" flex>
-    <md-sidenav layout="column" class="md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+<div layout="row" class="darkwhite-bg" flex>
+    <md-sidenav class="md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+
         <md-list ng-click="toggleMenu('left')">
+            <md-subheader class="md-no-sticky">{{usuario.email}}</md-subheader>
+            
             <md-list-item role="link" href="#/home">
                 <md-icon class="fa-home"></md-icon>
                 <p class="md-list-item-text">
                     Home
                 </p>
             </md-list-item>
-            <md-list-item role="link" href="#/projeto">
-                <md-icon class="fa-server"></md-icon>
+            
+            <md-list-item role="link" href="#/projetos">
+                <md-icon class="fa-puzzle-piece"></md-icon>
                 <p class="md-list-item-text">
                     Projetos
                 </p>
             </md-list-item>
 
+<<<<<<< HEAD
             <md-list-item role="link" href="#/treinamento">
                 <md-icon class="fa-server"></md-icon>
                 <p class="md-list-item-text">
@@ -33,20 +33,33 @@
                 </p>
             </md-list-item>
 
+=======
+>>>>>>> b3fc0e587e88242c897882a376e03b4975707a13
             <div ng-if="isDeveloper()">
                 <md-divider></md-divider>
                 <md-subheader class="md-no-sticky">Desenvolvedores</md-subheader>
+                
                 <md-list-item role="link" href="#/taskboard">
-                    <md-icon class="fa-gear"></md-icon>
+                    <md-icon class="fa-th-large"></md-icon>
                     <p class="md-list-item-text">
                         Taskboard
                     </p>
                 </md-list-item>
+                
+<!--
+                <md-list-item role="link" href="#/equipe">
+                    <md-icon class="fa-users"></md-icon>
+                    <p class="md-list-item-text">
+                        Minha Equipe
+                    </p>
+                </md-list-item>
+-->
             </div>
+    
         </md-list>
     </md-sidenav>
 
-    <md-content flex class="md-padding" style="background-color:#f0f0f0" ui-view>
+    <md-content class="darkwhite-bg" ui-view flex>
 
     </md-content>
 </div>

@@ -46,6 +46,30 @@ md-card .md-toolbar-tools md-icon {
     font-size: 16px;
 }
 
+md-card-content p.md-body-1 {
+    text-align: justify;
+}
+
+@media (min-width: 960px) {
+    .layout-gt-sm-row md-list-item:nth-child(even) {
+        margin-left: 12px;
+    }
+}
+
+.darkwhite-bg {
+    background-color: #f0f0f0;
+}
+
 .text-bold {
     font-weight: bold;
+}
+
+.example {
+    background-color: #f0f0f0;
+    font-size: 14px;
+    padding: 10px;
+}
+
+div.example {
+    margin: 15px 0;
 }

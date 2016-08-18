@@ -12,8 +12,12 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <md-input-container class="md-block">
+                    <label>Nome</label>
+                    <input type="text" name="nome" ng-model="projeto.nome" placeholder="Nome do Projeto" md-maxlength="30">
+                </md-input-container>
+                <md-input-container class="md-block">
                     <label>Descrição</label>
-                    <textarea name="descricao" ng-model="projeto.descricao" cols="5" md-maxlength="255"></textarea>
+                    <textarea name="descricao" ng-model="projeto.descricao" placeholder="Descreva claramente o quê você deseja" cols="5" md-maxlength="300"></textarea>
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>Urgência</label>

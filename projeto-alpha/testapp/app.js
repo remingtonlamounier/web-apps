@@ -1,4 +1,4 @@
-angular.module('starterapp', ['ui.router','ngMaterial'])
+angular.module('starterapp', ['ui.router', 'ngMaterial'])
 
 .config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $mdThemingProvider) {
     $stateProvider.state('login', {
@@ -10,7 +10,7 @@ angular.module('starterapp', ['ui.router','ngMaterial'])
         templateUrl: 'modules/main.html',
         controller: 'MainCtrl'
     });
-    
+        
     $stateProvider.state('app.home', {
         url: '/home',
         templateUrl: 'modules/home/home.html',
@@ -18,10 +18,15 @@ angular.module('starterapp', ['ui.router','ngMaterial'])
     });
     
     $stateProvider.state('app.projeto', {
-        url: '/projeto',
-        templateUrl: 'modules/projeto/projeto.html',
+        url: '/projetos',
+        templateProvider: ['$templateFactory', 'auth', function($templateFactory, auth) {
+            var isDeveloper = auth.getUser().grupo === 'develop' || auth.getUser().grupo === 'admin',
+                url = isDeveloper ? 'modules/develop/projeto/projeto.html' : 'modules/projeto/projeto.html';
+            return $templateFactory.fromUrl(url);
+        }],
         requireAuth: true
     });
+<<<<<<< HEAD
 
 
      $stateProvider.state('app.treinamento', {
@@ -29,6 +34,15 @@ angular.module('starterapp', ['ui.router','ngMaterial'])
         templateUrl: 'modules/treinamento/treinamento.html',
         requireAuth: true
     });
+=======
+    
+    $stateProvider.state('app.estoria', {
+        url: '/projeto/:id',
+        templateUrl: 'modules/develop/estoria/estoria.html',
+        requireAuth: true
+    });    
+    
+>>>>>>> b3fc0e587e88242c897882a376e03b4975707a13
     /* Add New States Above */
     
     $mdIconProvider.defaultFontSet( 'fa' );
