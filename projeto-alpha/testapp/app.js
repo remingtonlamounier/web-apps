@@ -26,23 +26,19 @@ angular.module('starterapp', ['ui.router', 'ngMaterial'])
         }],
         requireAuth: true
     });
-<<<<<<< HEAD
-
 
      $stateProvider.state('app.treinamento', {
         url: '/treinamento',
         templateUrl: 'modules/treinamento/treinamento.html',
         requireAuth: true
     });
-=======
     
     $stateProvider.state('app.estoria', {
         url: '/projeto/:id',
         templateUrl: 'modules/develop/estoria/estoria.html',
         requireAuth: true
-    });    
+    });
     
->>>>>>> b3fc0e587e88242c897882a376e03b4975707a13
     /* Add New States Above */
     
     $mdIconProvider.defaultFontSet( 'fa' );
