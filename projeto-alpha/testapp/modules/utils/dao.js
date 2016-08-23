@@ -1,10 +1,11 @@
 angular.module('starterapp').factory('dao', function() {
     var db = new DbFactory(DbProxies.LOCALSTORAGE, 'alpha'),
-        projetos = db.createDataSet('projeto'),
-        pessoa = db.createDataSet('pessoa'),
-        projetosDev = db.createDataSet('projeto'),
         atividades = db.createDataSet('atividade'),
-        estorias = db.createDataSet('estoria');
+        projetos = db.createDataSet('projeto'),
+        projetosDev = db.createDataSet('projeto'),
+        estorias = db.createDataSet('estoria'),
+        pessoa = db.createDataSet('pessoa'),
+        desenvolvedores = db.createDataSet('usuario');
 
     return {
         getDb: function() {
@@ -21,11 +22,6 @@ angular.module('starterapp').factory('dao', function() {
             return projetos;
         },
         
-        getPessoa: function(callback) {
-            pessoa.open(callback);
-            return pessoa;
-        },
-        
         getProjetosDev: function(callback) {
             projetosDev.open(callback);
             return projetosDev;
@@ -34,6 +30,17 @@ angular.module('starterapp').factory('dao', function() {
         getEstorias: function(callback) {
             estorias.open(callback);
             return estorias;
+        },
+        
+        getPessoa: function(callback) {
+            pessoa.open(callback);
+            return pessoa;
+        },
+        
+        getDesenvolvedores: function(callback) {
+            desenvolvedores.params = { grupo: 'develop' };
+            desenvolvedores.open(callback);
+            return desenvolvedores;
         }
     };
 });

@@ -32,7 +32,7 @@
                 </p>
             </md-list-item>
 
-            <div ng-if="isDeveloper()">
+            <div ng-if="userRole() === 'develop'">
                 <md-divider></md-divider>
                 <md-subheader class="md-no-sticky">Desenvolvedores</md-subheader>
                 
@@ -42,15 +42,18 @@
                         Taskboard
                     </p>
                 </md-list-item>
+            </div>
+            
+            <div ng-if="userRole() === 'admin'">
+                <md-divider></md-divider>
+                <md-subheader class="md-no-sticky">Administradores</md-subheader>
                 
-<!--
-                <md-list-item role="link" href="#/equipe">
-                    <md-icon class="fa-users"></md-icon>
+                <md-list-item role="link" href="#/desenvolvedores">
+                    <md-icon class="fa-code"></md-icon>
                     <p class="md-list-item-text">
-                        Minha Equipe
+                        Desenvolvedores
                     </p>
                 </md-list-item>
--->
             </div>
     
         </md-list>

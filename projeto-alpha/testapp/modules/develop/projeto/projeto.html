@@ -17,7 +17,7 @@
                 <md-list-item flex-gt-sm="50" class="md-whiteframe-z1 md-2-line" role="link" ng-repeat="item in projetos.data" href="#/projeto/{{item.id}}">
                     <div class="md-list-item-text inset">
                         <h3>{{item.nome}}</h3>
-                        <p>{{item.descricao}}</p>
+                        <p>{{charsAt(item.descricao, 100)}}</p>
                     </div>
                 </md-list-item>
             </md-list>

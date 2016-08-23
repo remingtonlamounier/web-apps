@@ -12,7 +12,7 @@
     margin: 0 4px;
 }
 
-md-icon {
+md-icon, .md-button.md-icon-button {
     height: auto;
     min-height: auto;
 }
@@ -21,7 +21,7 @@ md-icon {
     position: fixed !important;
 }
 
-/* angular material card */
+/* angular material card's */
 md-card md-toolbar {
     min-height: 0;
 }
@@ -64,6 +64,13 @@ md-card-content p.md-body-1 {
 
 div.example {
     margin: 15px 0;
+}
+
+.callout-bg {
+    background-image: url(../img/callout.jpg);
+    background-size: cover;
+    min-height: 152px;
+    color: #fff;
 }
 
 /* specific layout styles */

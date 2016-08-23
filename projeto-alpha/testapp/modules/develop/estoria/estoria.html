@@ -7,40 +7,52 @@
             </md-card-title-text>
         </md-card-title>
         
-        <md-card-content>
-
-            <div ng-if="!estorias.data.length">
-                <h3 class="md-title">Criando estórias</h3>
-                <p class="md-body-1">
-                    Clique no botão <i class="fa fa-plus"></i> abaixo, em seguida descreva de forma simples a estória do usuário de acordo com o quê ele deseja. Particione os desejos do usuário em várias estórias para facilitar as sprints e se necessário informe os critérios de aceitação. Por exemplo:
-                </p>
-                <p class="example">
-                    <strong>Desejo do usuário</strong>:<br>
+        <md-card-content ng-if="!estorias.data.length">
+            <h3 class="md-title">Criando estórias</h3>
+            <p class="md-body-1">
+                Clique no botão <i class="fa fa-plus"></i> abaixo, em seguida descreva de forma simples a estória do usuário de acordo com o quê ele deseja. Particione os desejos do usuário em várias estórias para facilitar as sprints e se necessário informe os critérios de aceitação. Por exemplo:
+            </p>
+            <div class="inset">
+                <h4>Desejo do usuário</h4>
+                <p>
                     Como consultor gostaria de um site para divulgar o meu trabalho. O site precisa ter uma área administrativa para que eu possa publicar fotos e escrever artigos, assim os visitantes poderam ver o trabalho que presto para as empresas.
                 </p>
+            </div>
+            <div class="inset">
+                <h4>Estória 1</h4>
                 <div class="example">
-                    <strong>Estória 1</strong>:<br>
-                    Como administrador gostaria publicar fotos no site para que os visitantes conheçam o meu trabalho.<br>
-                    <strong>Critérios de aceitação</strong>:<br>
-                    <li>Bloquear acesso a usuários não autorizados nesta área</li>
-                </div>
-                <div class="example">
-                    <strong>Estória 2</strong>:<br>
-                    Como administrador gostaria escrever artigos para o site para que o site atraia visitantes pelo conteúdo.<br>
+                    <strong>Ator</strong>: Administrador<br>
+                    <strong>Descrição</strong>: Publicar fotos no site<br>
+                    <strong>Objetivo</strong>: Para que os visitantes do site conheçam o meu trabalho.<br>
                     <strong>Critérios de aceitação</strong>:<br>
                     <li>Bloquear acesso a usuários não autorizados nesta área</li>
                 </div>
             </div>
-            
-<!--
-            <div class="md-whiteframe-z1 inset">
+            <div class="inset">
+                <h4>Estória 2</h4>
+                <div class="example">
+                    <strong>Ator</strong>: Administrador<br>
+                    <strong>Descrição</strong>: Escrever artigos para o site<br>
+                    <strong>Objetivo</strong>: Para que o site atraia visitantes também pelo conteúdo.<br>
+                    <strong>Critérios de aceitação</strong>:<br>
+                    <li>Bloquear acesso a usuários não autorizados nesta área</li>
+                </div>
+            </div>
+        </md-card-content>
+
+        <md-divider></md-divider>
+        
+        <div ng-if="estorias.data.length">
+            <md-card-content class="callout-bg">
                 <h3 class="md-title">{{projeto.nome}}</h3>
                 <p class="md-body-1">
                     {{projeto.descricao}}
                 </p>
-            </div>
--->
-            
+            </md-card-content>
+            <md-divider></md-divider>
+        </div>
+        
+        <md-card-content ng-if="estorias.data.length">
             <md-list layout-gt-sm="row">
                 <md-list-item flex-gt-sm="50" class="md-whiteframe-z1 md-2-line" role="link" ng-repeat="item in estorias.data">
                     <div class="md-list-item-text inset" ng-click="editStory($event, item)">
