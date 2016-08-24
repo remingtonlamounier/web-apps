@@ -5,7 +5,7 @@
     <h3>Apps Company</h3>
 </md-toolbar>
 
-<div layout="row" class="darkwhite-bg" flex>
+<div layout="row" class="transparent-bg" flex>
     <md-sidenav class="md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
 
         <md-list ng-click="toggleMenu('left')">
@@ -25,16 +25,9 @@
                 </p>
             </md-list-item>
 
-            <md-list-item role="link" href="#/treinamento">
-                <md-icon class="fa-server"></md-icon>
-                <p class="md-list-item-text">
-                    Treinamento
-                </p>
-            </md-list-item>
-
-            <div ng-if="userRole() === 'develop'">
+            <div ng-if="isDeveloper()">
                 <md-divider></md-divider>
-                <md-subheader class="md-no-sticky">Desenvolvedores</md-subheader>
+                <md-subheader class="md-no-sticky">Desenvolvimento</md-subheader>
                 
                 <md-list-item role="link" href="#/taskboard">
                     <md-icon class="fa-th-large"></md-icon>
@@ -44,14 +37,14 @@
                 </md-list-item>
             </div>
             
-            <div ng-if="userRole() === 'admin'">
+            <div ng-if="usuario.grupo === 'admin'">
                 <md-divider></md-divider>
-                <md-subheader class="md-no-sticky">Administradores</md-subheader>
+                <md-subheader class="md-no-sticky">Administração</md-subheader>
                 
-                <md-list-item role="link" href="#/desenvolvedores">
-                    <md-icon class="fa-code"></md-icon>
+                <md-list-item role="link" href="#/usuarios">
+                    <md-icon class="fa-users"></md-icon>
                     <p class="md-list-item-text">
-                        Desenvolvedores
+                        Usuários
                     </p>
                 </md-list-item>
             </div>

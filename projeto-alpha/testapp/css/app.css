@@ -8,13 +8,13 @@
     font-size: 1.5em;
 }
 
-.fa-question:before {
-    margin: 0 4px;
-}
-
 md-icon, .md-button.md-icon-button {
     height: auto;
     min-height: auto;
+}
+
+.md-avatar-icon.fa:before {
+    margin-left: 2px;
 }
 
 .md-fab.md-fab-bottom-right {
@@ -48,8 +48,21 @@ md-card-content p.md-body-1 {
 }
 
 /* app styles */
+.transparent-bg {
+    background: rgba(0, 0, 0, 0);
+}
+
 .darkwhite-bg {
+    background-image: url(../img/callout3.jpg);
+    background-size: cover;
     background-color: #f0f0f0;
+}
+
+.card-form {
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    background-color: #fff;
 }
 
 .text-bold {
@@ -66,10 +79,11 @@ div.example {
     margin: 15px 0;
 }
 
-.callout-bg {
+.card-title-bg {
     background-image: url(../img/callout.jpg);
     background-size: cover;
-    min-height: 152px;
+    background-position: center center;
+    background-color: #607D8B;
     color: #fff;
 }
 

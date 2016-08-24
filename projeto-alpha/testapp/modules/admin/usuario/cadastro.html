@@ -1,8 +1,8 @@
-<md-dialog aria-label="Cadastrar Projeto" flex-gt-sm="40">
-    <form name="cadproj" novalidate>
+<md-dialog aria-label="Editar Usuário" flex-gt-sm="40">
+    <form name="caduser" novalidate>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Criar projeto</h2>
+                <h2>Editar usuário</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()" aria-label="Cancelar">
                     <md-icon class="fa-close"></md-icon>
@@ -12,19 +12,15 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <md-input-container class="md-block">
-                    <label>Nome</label>
-                    <input type="text" name="nome" ng-model="projeto.nome" placeholder="Nome do Projeto" md-maxlength="30">
+                    <label>E-mail</label>
+                    <input type="email" name="email" ng-model="usuario.email" placeholder="usuario@domain.com" md-maxlength="60">
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>Descrição</label>
-                    <textarea name="descricao" ng-model="projeto.descricao" placeholder="Descreva claramente o quê você deseja" cols="5" md-maxlength="300"></textarea>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <label>Urgência</label>
-                    <md-select ng-model="projeto.urgencia">
-                        <md-option value="baixa">Baixa</md-option>
-                        <md-option value="media">Média</md-option>
-                        <md-option value="alta">Alta</md-option>
+                    <label>Grupo</label>
+                    <md-select ng-model="usuario.grupo">
+                        <md-option value="user">Usuários</md-option>
+                        <md-option value="develop">Desenvolvedores</md-option>
+                        <md-option value="admin">Administradores</md-option>
                     </md-select>
                 </md-input-container>
             </div>

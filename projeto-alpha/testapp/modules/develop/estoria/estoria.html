@@ -1,11 +1,19 @@
 <div ng-controller="DevEstoriaCtrl">
     <md-card>
-        <md-card-title>
+        <md-card-title class="card-title-bg">
             <md-card-title-text>
                 <span class="md-title">Estórias de usuário</span>
                 <span class="md-subhead">Adicione, altere, exclua estórias...</span>
             </md-card-title-text>
         </md-card-title>
+        
+        <div ng-if="projeto && projeto.nome">
+            <md-card-content>
+                <h3 class="md-title">{{projeto.nome}}</h3>
+                <p class="md-body-1">{{projeto.descricao}}</p>
+            </md-card-content>
+            <md-divider></md-divider>
+        </div>
         
         <md-card-content ng-if="!estorias.data.length">
             <h3 class="md-title">Criando estórias</h3>
@@ -40,18 +48,6 @@
             </div>
         </md-card-content>
 
-        <md-divider></md-divider>
-        
-        <div ng-if="estorias.data.length">
-            <md-card-content class="callout-bg">
-                <h3 class="md-title">{{projeto.nome}}</h3>
-                <p class="md-body-1">
-                    {{projeto.descricao}}
-                </p>
-            </md-card-content>
-            <md-divider></md-divider>
-        </div>
-        
         <md-card-content ng-if="estorias.data.length">
             <md-list layout-gt-sm="row">
                 <md-list-item flex-gt-sm="50" class="md-whiteframe-z1 md-2-line" role="link" ng-repeat="item in estorias.data">

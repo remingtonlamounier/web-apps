@@ -1,6 +1,11 @@
 angular.module('starterapp', ['ui.router', 'ngMaterial'])
 
 .config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $mdThemingProvider) {
+    $stateProvider.state('criar', {
+        url: '/criar',
+        templateUrl: 'modules/login/criar.html'
+    });
+
     $stateProvider.state('login', {
         url: '/login',
         templateUrl: 'modules/login/login.html'
@@ -33,15 +38,9 @@ angular.module('starterapp', ['ui.router', 'ngMaterial'])
         roles: ['develop','admin']
     });
     
-    $stateProvider.state('app.treinamento', {
-        url: '/treinamento',
-        templateUrl: 'modules/treinamento/treinamento.html',
-        roles: ['develop','admin']
-    });
-    
-    $stateProvider.state('app.desenvolvedor', {
-        url: '/desenvolvedores',
-        templateUrl: 'modules/admin/desenvolvedor/desenvolvedor.html',
+    $stateProvider.state('app.usuario', {
+        url: '/usuarios',
+        templateUrl: 'modules/admin/usuario/usuario.html',
         roles: ['admin']
     });
     

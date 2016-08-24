@@ -4,8 +4,7 @@ angular.module('starterapp').factory('dao', function() {
         projetos = db.createDataSet('projeto'),
         projetosDev = db.createDataSet('projeto'),
         estorias = db.createDataSet('estoria'),
-        pessoa = db.createDataSet('pessoa'),
-        desenvolvedores = db.createDataSet('usuario');
+        usuarios = db.createDataSet('usuario');
 
     return {
         getDb: function() {
@@ -32,15 +31,9 @@ angular.module('starterapp').factory('dao', function() {
             return estorias;
         },
         
-        getPessoa: function(callback) {
-            pessoa.open(callback);
-            return pessoa;
-        },
-        
-        getDesenvolvedores: function(callback) {
-            desenvolvedores.params = { grupo: 'develop' };
-            desenvolvedores.open(callback);
-            return desenvolvedores;
+        getUsuarios: function(callback) {
+            usuarios.open(callback);
+            return usuarios;
         }
     };
 });

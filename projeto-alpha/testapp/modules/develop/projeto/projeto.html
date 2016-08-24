@@ -1,6 +1,6 @@
 <div ng-controller="DevProjetoCtrl">
     <md-card>
-        <md-card-title>
+        <md-card-title class="card-title-bg">
             <md-card-title-text>
                 <span class="md-title">Projetos</span>
                 <span class="md-subhead">Selecione um projeto para começar suas estórias</span>
@@ -9,9 +9,9 @@
         
         <md-card-content>
             <md-list layout-gt-sm="row">
-                <md-list-item role="link" ng-if="!projetos.data.length">
-                    <md-icon md-font-icon="fa-exclamation"></md-icon>
-                    <p class="md-body-1">Você ainda não foi chamado para nenhum projeto</p>
+                <md-list-item ng-if="!projetos.data.length">
+                    <md-icon md-font-icon="fa-exclamation-circle"></md-icon>
+                    <p class="md-body-1">Nenhum projeto para desenvolver</p>
                 </md-list-item>                
                 
                 <md-list-item flex-gt-sm="50" class="md-whiteframe-z1 md-2-line" role="link" ng-repeat="item in projetos.data" href="#/projeto/{{item.id}}">
