@@ -16,15 +16,15 @@ module.exports = {
       usuario: {
           model: 'usuario',
           required: true
-      },
-      membros: {
-          collection: 'usuario',
-          via: 'equipes',
-          dominant: true
-      },
-      projetos: {
-          collection: 'projeto',
-          via: 'equipe'
       }
+//      membros: {
+//          collection: 'usuario',
+//          via: 'equipes',
+//          dominant: true
+//      },
+//      projetos: {
+//          collection: 'projeto',
+//          via: 'equipe'
+//      }
   }
 };

@@ -60,13 +60,13 @@ module.exports.policies = {
   'ProjetoController': {
     '*': ['isAuthorized','isMine'],
     'create': ['isAuthorized','setLoggedUser'],
-    'find': ['isAuthorized','setLoggedUser']
+    'pending': ['isAuthorized','isDeveloper']
   },
 
-  'FuncionalidadeController': {
+  'EstoriaController': {
     '*': ['isAuthorized','isMine'],
-    'create': ['isAuthorized','setLoggedUser'],
-    'find': ['isAuthorized','setLoggedUser']
+    'create': ['isAuthorized','isDeveloper','setLoggedUser'],
+    'find': ['isAuthorized','isDeveloper']
   },
     
   'EquipeController': {

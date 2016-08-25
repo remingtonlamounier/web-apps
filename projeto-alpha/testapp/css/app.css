@@ -1,6 +1,13 @@
-/* ng styles */
+/*
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
+}
+*/
+
+/* angular material extensions */
+._md-center {
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
 }
 
 /* font icons */

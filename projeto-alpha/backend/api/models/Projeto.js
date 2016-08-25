@@ -10,7 +10,7 @@ module.exports = {
   attributes: {
       descricao: {
           type: 'string',
-          size: 255,
+          size: 300,
           required: true
       },
       urgencia: {
@@ -27,13 +27,9 @@ module.exports = {
           model: 'usuario',
           required: true
       },
-//      funcionalidades: {
-//          collection: 'funcionalidade',
-//          via: 'projeto'
+//      equipe: {
+//          model: 'equipe'
 //      },
-      equipe: {
-          model: 'equipe'
-      },
       toJSON: function() {
           var obj = this.toObject(),
               situacao = obj.situacao;
@@ -52,10 +48,5 @@ module.exports = {
           
           return obj;
       }
-  },
-  
-  afterDestroy: function(deleteds, callback) {
-      var ids = deleteds.map(function(item) { return item.id; });
-      Funcionalidade.destroy({projeto: ids}).exec(callback);
   }
 };

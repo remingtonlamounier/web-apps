@@ -11,10 +11,10 @@ module.exports = {
       descricao: {
           type: 'string',
           required: true,
-          size: 255
+          size: 150
       },
-      funcionalidade: {
-          model: 'funcionalidade'
+      estoria: {
+          model: 'estoria'
       }
   }
 };

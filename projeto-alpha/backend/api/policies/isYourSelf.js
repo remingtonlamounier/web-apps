@@ -3,15 +3,15 @@ module.exports = function(req, res, next) {
         return res.badRequest({error: 'token not found'});
     }
     
-    var usuario;
-    
-    if (req.options.model === 'usuario') {
-        usuario = req.param('id');
+    if (req.options.model !== 'usuario') {
+        return res.badRequest({error: 'the policy block request to any endpoints that are "usuario"'});
     }
     
-    if (usuario && parseInt(usuario) !== req.token.id) {
-        return res.forbidden({error: 'action not allowed'});
+    var usuario = req.param('id');
+    
+    if (parseInt(usuario) === req.token.id || req.token.grupo === 'admins') {
+        return next();
     }
     
-    return next();
+    return res.forbidden({error: 'action not allowed'});
 };

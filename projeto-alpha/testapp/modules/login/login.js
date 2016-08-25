@@ -11,7 +11,7 @@ angular.module('starterapp').controller('LoginCtrl', function($scope, $state, $m
             $mdToast.show(
                 $mdToast.simple()
                     .textContent(err)
-                    .position('top right')
+                    .position('bottom center')
                     .hideDelay(5000)
             );
         });

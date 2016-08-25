@@ -3,16 +3,20 @@ module.exports = function(req, res, next) {
         return res.badRequest({error: 'token not found'});
     }
     
+    if (req.token.grupo === 'admins') {
+        return next();
+    }
+    
     var modelId = req.param('id'),
         model = sails.models[req.options.model];
 
     if (!model || !modelId) {
-        return res.serverError({error: 'errors happen in the request', details: req.options});
+        return res.badRequest({error: 'the policy block request that not have url parameters'});
     }
     
     model.findOne(parseInt(modelId)).exec(function(err, record) {
         if (err) {
-            return res.badRequest(err);
+            return res.json(err.status, err);
         }
         if (!record) {
             return res.notFound({error: 'resource not found'});

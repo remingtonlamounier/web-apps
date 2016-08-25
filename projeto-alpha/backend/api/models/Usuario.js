@@ -17,7 +17,7 @@ module.exports = {
           type: 'email',
           unique: true,
           required: true,
-          size: 100
+          size: 60
       },
       senha: {
           type: 'string',
@@ -34,14 +34,13 @@ module.exports = {
           type: 'string',
           size: 12
       },
-      equipes: {
-          collection: 'equipe',
-          via: 'membros'
-      },
+//      equipes: {
+//          collection: 'equipe',
+//          via: 'membros'
+//      },
       toJSON: function() {
           var model = this.toObject();
           delete model.senha;
-          delete model.grupo;
           return model;
       }
   }
