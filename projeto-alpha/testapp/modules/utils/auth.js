@@ -1,8 +1,7 @@
-angular.module('starterapp').factory('auth', function($http) {
-    var baseUrl = 'http://localhost:1337',
-        auth = {
+angular.module('starterapp').factory('auth', function($http, URL) {
+    var auth = {
             create: function(user, callback) {
-                var url = baseUrl + '/usuario';
+                var url = URL.BACKEND + '/usuario';
                 
                 if (this.isAuthorized()) {
                     return callback();
@@ -30,7 +29,7 @@ angular.module('starterapp').factory('auth', function($http) {
             },
             
             authorize: function(user, callback) {
-                var url = baseUrl + '/login';
+                var url = URL.BACKEND + '/login';
                 
                 if (this.isAuthorized()) {
                     return callback();

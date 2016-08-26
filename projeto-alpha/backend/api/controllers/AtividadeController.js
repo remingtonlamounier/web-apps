@@ -1,7 +1,7 @@
 /**
- * EquipeController
+ * AtividadeController
  *
- * @description :: Server-side logic for managing equipes
+ * @description :: Server-side logic for managing atividades
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 

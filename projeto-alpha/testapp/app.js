@@ -1,5 +1,9 @@
 angular.module('starterapp', ['ui.router', 'ngMaterial'])
 
+.constant('URL', {
+    'BACKEND': 'http://localhost:1337'
+})
+
 .config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $mdThemingProvider) {
     $stateProvider.state('criar', {
         url: '/criar',

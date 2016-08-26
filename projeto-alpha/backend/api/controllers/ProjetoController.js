@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-	pending: function(req, res) {
+	pendentes: function(req, res) {
         Projeto.find({situacao: ['P','A']}).exec(function(err, projetos) {
             if (err) {
                 return res.json(err.status, err);

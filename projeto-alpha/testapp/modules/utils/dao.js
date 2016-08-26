@@ -1,5 +1,7 @@
-angular.module('starterapp').factory('dao', function() {
-    var db = new DbFactory(DbProxies.LOCALSTORAGE, 'alpha'),
+angular.module('starterapp').factory('dao', function($http, URL, auth) {
+    var headers = { Authorization: 'Bearer ' + auth.getUser().token },
+        config = { url: URL.BACKEND, headers: headers },
+        db = new DbFactory(DbProxies.LOCALSTORAGE, 'alpha'),
         atividades = db.createDataSet('atividade'),
         projetos = db.createDataSet('projeto'),
         estorias = db.createDataSet('estoria'),
@@ -28,6 +30,29 @@ angular.module('starterapp').factory('dao', function() {
         getUsuarios: function(callback) {
             usuarios.open(callback);
             return usuarios;
+        },
+        
+        projPendentes: function(callback) {
+            var url = URL.BACKEND + '/projeto/pendentes';
+            
+            this.getProjetos(function(results) {
+                callback(null, results);
+            });
+            
+//            $http.get(url, { headers: headers }).then(
+//                function(res) {
+//                    callback(null, res.data);
+//                },
+//                function(res) {
+//                    var message = 'Ocorreu um erro inesperado';
+//
+//                    if (res.data && res.data.error) {
+//                        message = res.data.error;
+//                    }
+//                    
+//                    callback(message, null);
+//                }
+//            );
         }
     };
 });
