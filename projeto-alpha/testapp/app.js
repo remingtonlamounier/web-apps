@@ -1,6 +1,6 @@
 angular.module('starterapp', ['ui.router', 'ngMaterial'])
 
-.constant('URL', {
+.constant('URLS', {
     'BACKEND': 'http://localhost:1337'
 })
 
@@ -23,29 +23,29 @@ angular.module('starterapp', ['ui.router', 'ngMaterial'])
     $stateProvider.state('app.home', {
         url: '/home',
         templateUrl: 'modules/home/home.html',
-        roles: ['user','develop','admin']
+        roles: ['users','develops','admins']
     });
     
     $stateProvider.state('app.projeto', {
         url: '/projetos',
         templateProvider: ['$templateFactory', 'auth', function($templateFactory, auth) {
-            var isDeveloper = auth.getUser().grupo === 'develop' || auth.getUser().grupo === 'admin',
+            var isDeveloper = auth.getUser().grupo === 'develops' || auth.getUser().grupo === 'admins',
                 url = isDeveloper ? 'modules/develop/projeto/projeto.html' : 'modules/projeto/projeto.html';
             return $templateFactory.fromUrl(url);
         }],
-        roles: ['user','develop','admin']
+        roles: ['users','develops','admins']
     });
 
     $stateProvider.state('app.estoria', {
         url: '/projeto/:id',
         templateUrl: 'modules/develop/estoria/estoria.html',
-        roles: ['develop','admin']
+        roles: ['develops','admins']
     });
     
     $stateProvider.state('app.usuario', {
         url: '/usuarios',
         templateUrl: 'modules/admin/usuario/usuario.html',
-        roles: ['admin']
+        roles: ['admins']
     });
     
     /* Add New States Above */

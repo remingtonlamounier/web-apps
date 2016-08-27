@@ -2,7 +2,7 @@ angular.module('starterapp').controller('MainCtrl', function($scope, $mdSidenav,
     $scope.usuario = auth.getUser();
     
     $scope.isDeveloper = function() {
-        return $scope.usuario.grupo !== 'user';
+        return $scope.usuario.grupo !== 'users';
     };
     
     $scope.toggleMenu = function(menuId) {

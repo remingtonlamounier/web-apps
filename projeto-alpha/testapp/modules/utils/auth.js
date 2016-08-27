@@ -1,7 +1,7 @@
-angular.module('starterapp').factory('auth', function($http, URL) {
+angular.module('starterapp').factory('auth', function($http, URLS) {
     var auth = {
             create: function(user, callback) {
-                var url = URL.BACKEND + '/usuario';
+                var url = URLS.BACKEND + '/usuario';
                 
                 if (this.isAuthorized()) {
                     return callback();
@@ -12,6 +12,7 @@ angular.module('starterapp').factory('auth', function($http, URL) {
                     delete user.confirmaSenha;
                     
                     user.token = res.data.token;
+                    user.id = res.data.usuario.id;
                     user.grupo = res.data.usuario.grupo;
                     
                     localStorage.setItem('user', JSON.stringify(user));
@@ -29,7 +30,7 @@ angular.module('starterapp').factory('auth', function($http, URL) {
             },
             
             authorize: function(user, callback) {
-                var url = URL.BACKEND + '/login';
+                var url = URLS.BACKEND + '/login';
                 
                 if (this.isAuthorized()) {
                     return callback();
@@ -39,6 +40,7 @@ angular.module('starterapp').factory('auth', function($http, URL) {
                     delete user.senha;
                     
                     user.token = res.data.token;
+                    user.id = res.data.usuario.id;
                     user.nome = res.data.usuario.nome;
                     user.grupo = res.data.usuario.grupo;
                     user.fone = res.data.usuario.telefone;

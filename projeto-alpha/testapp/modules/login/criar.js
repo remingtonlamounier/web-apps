@@ -13,6 +13,10 @@ angular.module('starterapp').controller('CriarCtrl', function($scope, $state, $m
             return;
         }
         
+        if (!$scope.newfrm.$dirty || !$scope.newfrm.$valid) {
+            return;
+        }
+        
         auth.create(user, function(err) {
             if (err) {
                 $mdToast.show(

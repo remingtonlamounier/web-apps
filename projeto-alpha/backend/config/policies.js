@@ -70,7 +70,7 @@ module.exports.policies = {
   },
     
   'AtividadeController': {
-    'find': ['isAuthorized','setLoggedUser']
+    'feed': ['isAuthorized']
   },
     
   'EquipeController': {

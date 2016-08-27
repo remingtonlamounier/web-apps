@@ -1,7 +1,10 @@
 angular.module('starterapp').controller('HomeCtrl', function($scope, auth, dao) {
     $scope.usuario = auth.getUser();
     $scope.projetos = dao.getProjetos();
-    $scope.atividades = dao.getAtividades();
+    
+    dao.feed(function(results) {
+        $scope.atividades = results;
+    });
     
     $scope.getActivity = function(descricao) {
         return descricao.replace($scope.usuario.nome, 'Você');

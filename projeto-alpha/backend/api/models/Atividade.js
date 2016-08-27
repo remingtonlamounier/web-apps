@@ -13,6 +13,13 @@ module.exports = {
           required: true,
           size: 150
       },
+      datahora: {
+          type: 'datetime',
+          required: true,
+          defaultsTo: function() {
+              return new Date();
+          }
+      },
       projeto: {
           model: 'projeto'
       },
