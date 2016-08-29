@@ -43,7 +43,7 @@ angular.module('starterapp').factory('auth', function($http, URLS) {
                     user.id = res.data.usuario.id;
                     user.nome = res.data.usuario.nome;
                     user.grupo = res.data.usuario.grupo;
-                    user.fone = res.data.usuario.telefone;
+                    user.telefone = res.data.usuario.telefone;
                     
                     localStorage.setItem('user', JSON.stringify(user));
                     
