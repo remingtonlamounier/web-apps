@@ -17,12 +17,12 @@
             
             <h3 class="md-title">Atividades</h3>
             <md-list layout-align="start start">
-                <md-list-item ng-if="!atividades.data.length">
+                <md-list-item ng-if="!atividades.length">
                     <md-icon md-font-icon="fa-exclamation-circle"></md-icon>
                     <p class="md-body-1">Nenhuma atividade recente</p>
                 </md-list-item>
 
-                <md-list-item class="md-2-line" ng-repeat="item in atividades.data">
+                <md-list-item class="md-2-line" ng-repeat="item in atividades">
                     <md-icon class="fa-clock-o"></md-icon>
                     <div class="md-list-item-text">
                         <h4>{{getActivity(item.descricao)}}</h4>

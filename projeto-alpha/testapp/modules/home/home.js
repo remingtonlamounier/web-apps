@@ -2,7 +2,7 @@ angular.module('starterapp').controller('HomeCtrl', function($scope, auth, dao) 
     $scope.usuario = auth.getUser();
     $scope.projetos = dao.getProjetos();
     
-    dao.feed(function(results) {
+    dao.feed(function(err, results) {
         $scope.atividades = results;
     });
     

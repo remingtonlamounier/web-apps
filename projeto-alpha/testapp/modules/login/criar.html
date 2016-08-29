@@ -40,12 +40,7 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Telefone</label>
-                <input type="tel" name="fone" ng-model="usuario.fone" placeholder="(xx)xxxxx-xxxx" minlength="7" maxlength="12">
-<!--
-                <div ng-messages="newfrm.nome.$error" role="alert">
-                    <div ng-message="minlength" ng-hide="!newfrm.nome.$error.minlength">O nome deve ter pelo menos 3 caracteres</div>
-                </div>
--->
+                <input type="tel" name="fone" ng-model="usuario.fone" placeholder="(xx) xxxxx-xxxx" minlength="7" maxlength="12" mask="(99) 9?9999-9999" clean="true" restrict="reject">
             </md-input-container>            
             <div layout="column" layout-align="center">
                 <md-button type="submit" class="md-raised md-primary">Criar</md-button>

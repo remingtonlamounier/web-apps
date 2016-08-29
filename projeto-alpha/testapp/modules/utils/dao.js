@@ -2,6 +2,7 @@ angular.module('starterapp').factory('dao', function($http, URLS, auth) {
     var headers = { Authorization: 'Bearer ' + auth.getUser().token },
         config = { url: URLS.BACKEND, headers: headers },
         db = new DbFactory(DbProxies.LOCALSTORAGE, 'alpha'),
+//        db = new DbFactory(DbProxies.RESTFUL, config),
         projetos = db.createDataSet('projeto'),
         estorias = db.createDataSet('estoria'),
         usuarios = db.createDataSet('usuario');
@@ -9,7 +10,9 @@ angular.module('starterapp').factory('dao', function($http, URLS, auth) {
     var httpRequest = function(method, url, callback) {
         $http[method](url, { headers: headers }).then(
             function(res) {
-                callback(null, res.data);
+                var results = new ArrayMap();
+                results.putRange(res.data);
+                callback(null, results);
             },
             function(res) {
                 var message = 'Ocorreu um erro inesperado';
@@ -18,7 +21,7 @@ angular.module('starterapp').factory('dao', function($http, URLS, auth) {
                     message = res.data.error;
                 }
 
-                callback(message, null);
+                callback(message, []);
             });
     };
 
@@ -44,7 +47,7 @@ angular.module('starterapp').factory('dao', function($http, URLS, auth) {
         
         feed: function(callback) {
             var url = URLS.BACKEND + '/atividade/feed';
-            callback(null, []);
+            callback(null, new ArrayMap());
             //httpRequest('get', url, callback);
         },
         

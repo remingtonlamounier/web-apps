@@ -1,4 +1,4 @@
-angular.module('starterapp', ['ui.router', 'ngMaterial'])
+angular.module('starterapp', ['ui.router', 'ngMaterial', 'ngMask'])
 
 .constant('URLS', {
     'BACKEND': 'http://localhost:1337'

@@ -8,6 +8,7 @@
 ._md-center {
     left: 50%;
     transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
 }
 
 /* font icons */
@@ -60,7 +61,7 @@ md-card-content p.md-body-1 {
 }
 
 .darkwhite-bg {
-    background-image: url(../img/callout3.jpg);
+    background-image: url(../images/content-bg.jpg);
     background-size: cover;
     background-color: #f0f0f0;
 }
@@ -87,7 +88,7 @@ div.example {
 }
 
 .card-title-bg {
-    background-image: url(../img/callout.jpg);
+    background-image: url(../images/callout.jpg);
     background-size: cover;
     background-position: center center;
     background-color: #607D8B;

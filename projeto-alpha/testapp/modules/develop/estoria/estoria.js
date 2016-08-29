@@ -1,7 +1,7 @@
 angular.module('starterapp').controller('DevEstoriaCtrl',function($scope, $stateParams, dao, dialogs){
     $scope.estorias = dao.getEstorias();
     
-    dao.projPendentes(function(results) {
+    dao.projPendentes(function(err, results) {
         var index = results.indexOfKey('id', parseInt($stateParams.id));
         $scope.projeto = results[index];
     });
