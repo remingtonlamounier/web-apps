@@ -15,7 +15,7 @@ angular.module('starterapp').factory('auth', function($http, URLS) {
                     user.id = res.data.usuario.id;
                     user.grupo = res.data.usuario.grupo;
                     
-                    localStorage.setItem('user', JSON.stringify(user));
+                    sessionStorage.setItem('user', JSON.stringify(user));
                     
                     callback();
                 }, function(res) {
@@ -45,7 +45,7 @@ angular.module('starterapp').factory('auth', function($http, URLS) {
                     user.grupo = res.data.usuario.grupo;
                     user.telefone = res.data.usuario.telefone;
                     
-                    localStorage.setItem('user', JSON.stringify(user));
+                    sessionStorage.setItem('user', JSON.stringify(user));
                     
                     callback();
                 }, function(res) {
@@ -62,7 +62,7 @@ angular.module('starterapp').factory('auth', function($http, URLS) {
             },
             
             getUser: function() {
-                var obj = localStorage.getItem('user') || '{}';
+                var obj = sessionStorage.getItem('user') || '{}';
                 return JSON.parse(obj);
             },
             

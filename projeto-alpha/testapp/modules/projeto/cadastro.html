@@ -1,5 +1,5 @@
 <md-dialog aria-label="Cadastrar Projeto" flex-gt-sm="40">
-    <form name="cadproj" novalidate>
+    <form name="cadfrm" ng-submit="save()" novalidate>
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>Criar projeto</h2>
@@ -13,11 +13,11 @@
             <div class="md-dialog-content">
                 <md-input-container class="md-block">
                     <label>Nome</label>
-                    <input type="text" name="nome" ng-model="projeto.nome" placeholder="Nome do Projeto" required md-maxlength="30">
+                    <input type="text" name="nome" ng-model="projeto.nome" placeholder="Nome do Projeto" required minlength="3" md-maxlength="30">
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>Descrição</label>
-                    <textarea name="descricao" ng-model="projeto.descricao" placeholder="Descreva claramente o quê você deseja" cols="5" required md-maxlength="300"></textarea>
+                    <textarea name="descricao" ng-model="projeto.descricao" placeholder="Descreva claramente o quê você deseja" cols="5" required minlength="30" md-maxlength="300"></textarea>
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>Urgência</label>
@@ -31,7 +31,7 @@
         </md-dialog-content>
         <md-dialog-actions layout="row">
             <span flex></span>
-            <md-button class="md-raised md-primary" ng-click="save()">
+            <md-button type="submit" class="md-raised md-primary">
                 Confirmar
             </md-button>
             <md-button ng-click="cancel()">

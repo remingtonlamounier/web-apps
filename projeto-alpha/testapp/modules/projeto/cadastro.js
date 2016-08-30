@@ -6,6 +6,8 @@ angular.module('starterapp').controller('CadProjetoCtrl', function($scope, $mdDi
     };
     
     $scope.save = function() {
-        $mdDialog.hide($scope.projeto);
+        if ($scope.cadfrm.$valid) {
+            $mdDialog.hide($scope.projeto);
+        }
     };
 });

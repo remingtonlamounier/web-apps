@@ -6,6 +6,8 @@ angular.module('starterapp').controller('CadEstoriaCtrl', function($scope, $mdDi
     };
     
     $scope.save = function() {
-        $mdDialog.hide($scope.estoria);
+        if ($scope.cadfrm.$valid) {
+            $mdDialog.hide($scope.estoria);
+        }
     };
 });
