@@ -1,17 +1,63 @@
-angular.module('alpha', ['ui.bootstrap','ngRoute','ngAnimate']);
+angular.module('starterapp', ['ui.router', 'ngMaterial', 'ngMask'])
 
-angular.module('alpha').config(function($routeProvider) {
+.constant('URLS', {
+    'BACKEND': 'http://localhost:1337'
+})
 
-    $routeProvider.when('/home',{templateUrl: 'app/home/page.html'});
-    $routeProvider.when('/funcionalidade',{templateUrl: 'app/funcionalidade/page.html'});
-    $routeProvider.when('/projeto',{templateUrl: 'app/projeto/page.html'});
-    /* Add New Routes Above */
-    $routeProvider.otherwise({redirectTo:'/home'});
+.config(function($stateProvider, $urlRouterProvider, $mdIconProvider, $mdThemingProvider) {
+    $stateProvider.state('criar', {
+        url: '/criar',
+        templateUrl: 'modules/login/criar.html'
+    });
 
-});
+    $stateProvider.state('login', {
+        url: '/login',
+        templateUrl: 'modules/login/login.html'
+    });
+    
+    $stateProvider.state('app', {
+        templateUrl: 'modules/main.html',
+        controller: 'MainCtrl'
+    });
+        
+    $stateProvider.state('app.home', {
+        url: '/home',
+        templateUrl: 'modules/home/home.html',
+        roles: ['users','develops','admins']
+    });
+    
+    $stateProvider.state('app.projeto', {
+        url: '/projetos',
+        templateProvider: ['$templateFactory', 'auth', function($templateFactory, auth) {
+            var isDeveloper = auth.getUser().grupo === 'develops' || auth.getUser().grupo === 'admins',
+                url = isDeveloper ? 'modules/develop/projeto/projeto.html' : 'modules/projeto/projeto.html';
+            return $templateFactory.fromUrl(url);
+        }],
+        roles: ['users','develops','admins']
+    });
 
-angular.module('alpha').run(function($rootScope) {
+    $stateProvider.state('app.estoria', {
+        url: '/projeto/:id',
+        templateUrl: 'modules/develop/estoria/estoria.html',
+        roles: ['develops','admins']
+    });
+    
+    $stateProvider.state('app.usuario', {
+        url: '/usuarios',
+        templateUrl: 'modules/admin/usuario/usuario.html',
+        roles: ['admins']
+    });
+    
+    /* Add New States Above */
+    
+    $mdIconProvider.defaultFontSet( 'fa' );
+    
+    $mdThemingProvider.theme('default').primaryPalette('blue');
 
+    $urlRouterProvider.otherwise('/home');
+})
+
+.run(function($rootScope, $state, auth) {
     $rootScope.safeApply = function(fn) {
         var phase = $rootScope.$$phase;
         if (phase === '$apply' || phase === '$digest') {
@@ -23,4 +69,12 @@ angular.module('alpha').run(function($rootScope) {
         }
     };
 
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+        var role = auth.getUser().grupo;
+        
+        if (toState.roles && toState.roles.indexOf(role) === -1) {
+            $state.transitionTo('login');
+            event.preventDefault();
+        }
+    });
 });
