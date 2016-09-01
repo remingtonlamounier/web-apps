@@ -32,6 +32,7 @@ module.exports = {
       },
       telefone: {
           type: 'string',
+          required: true,
           size: 12
       },
 //      equipes: {
