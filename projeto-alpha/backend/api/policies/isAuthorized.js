@@ -16,7 +16,7 @@ module.exports = function(req, res, next) {
     
     Token.findOne({key: parts[1]}, function(err, token) {
         if (!token) {
-            return res.badRequest({error: 'authorization token not found'});
+            return res.forbidden({error: 'authorization token not found'});
         }
         
         TokenService.verify(token.key, token.secret, function(err, decoded) {

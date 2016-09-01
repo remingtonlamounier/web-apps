@@ -11,6 +11,21 @@ angular.module('starterapp').factory('dialogs',function($mdMedia, $mdDialog) {
                 fullscreen: useFullScreen,
                 locals: locals
             });
+        },
+        
+        alert: function(text) {
+            var alert = $mdDialog.alert({
+                    title: 'Atenção',
+                    textContent: text,
+                    theme: 'default',
+                    ok: 'Fechar'
+                });
+            
+            $mdDialog
+                .show( alert )
+                .finally(function() {
+                    alert = undefined;
+                });
         }
     };
 });

@@ -44,7 +44,7 @@ module.exports = function(req, res, next) {
         };
     
     Atividade.create(activity).exec(function(err, atividade) {
-        if (!err) {
+        if (err) {
             return res.serverError({error: 'create user activity fail'});
         }
         return next();

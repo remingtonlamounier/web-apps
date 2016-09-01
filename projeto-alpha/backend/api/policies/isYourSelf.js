@@ -4,7 +4,7 @@ module.exports = function(req, res, next) {
     }
     
     if (req.options.model !== 'usuario') {
-        return res.badRequest({error: 'the policy block request to any endpoints that are "usuario"'});
+        return res.badRequest({error: 'the policy block request to any resource that is not "usuario"'});
     }
     
     var usuario = req.param('id');

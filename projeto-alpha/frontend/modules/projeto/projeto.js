@@ -19,6 +19,11 @@ angular.module('starterapp').controller('ProjetoCtrl', function($scope, dao, dia
     };
     
     $scope.delProject = function(event, item) {
+        if (item.situacao !== 'Pendente') {
+            dialogs.alert('Este projeto já está em andamento!');
+            return;
+        }
+        
         $scope.projetos.delete(item);
         $scope.projetos.post();
     };

@@ -1,4 +1,4 @@
-angular.module('starterapp').factory('auth', function($http, URLS) {
+angular.module('starterapp').factory('auth', function($http, $state, URLS) {
     var auth = {
             create: function(user, callback) {
                 var url = URLS.BACKEND + '/usuario';
@@ -68,6 +68,11 @@ angular.module('starterapp').factory('auth', function($http, URLS) {
             
             isAuthorized: function() {
                 return this.getUser().token ? true : false;
+            },
+        
+            clear: function() {
+                sessionStorage.setItem('user', '{}');
+                $state.go('login', { unAuthorized: true });
             }
         };
 

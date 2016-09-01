@@ -10,9 +10,10 @@ angular.module('starterapp').controller('HomeCtrl', function($scope, auth, dao) 
         return descricao.replace($scope.usuario.nome, 'Você');
     };
     
-    $scope.timeElapsed = function(datahora) {
+    $scope.timeElapsed = function(strDataHora) {
         var now = new Date(),
-            ms = (now - datahora),
+            datetime = new Date(strDataHora),
+            ms = (now - datetime),
             secs = ms / 1000,
             days = secs >= 86400 ? secs / 86400 : 0,
             x;

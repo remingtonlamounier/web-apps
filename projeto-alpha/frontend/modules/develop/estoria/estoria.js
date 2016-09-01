@@ -8,6 +8,7 @@ angular.module('starterapp').controller('DevEstoriaCtrl',function($scope, $state
     
     var save = function(estoria) {
         if (estoria) {
+            estoria.projeto = $scope.projeto.id;
             $scope.estorias.save(estoria);
             $scope.estorias.post();
         }

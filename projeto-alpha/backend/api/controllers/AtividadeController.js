@@ -22,7 +22,7 @@ module.exports = {
             
             where.or.push({ usuario: req.token.id });
             
-            Atividade.find(where).exec(function(err, atividades) {
+            Atividade.find(where).sort('datahora DESC').exec(function(err, atividades) {
                 if (err) {
                     return res.json(err.status, err);
                 }
