@@ -13,13 +13,6 @@ module.exports = {
           required: true,
           size: 150
       },
-      datahora: {
-          type: 'datetime',
-          required: true,
-          defaultsTo: function() {
-              return new Date();
-          }
-      },
       projeto: {
           model: 'projeto'
       },
@@ -27,5 +20,30 @@ module.exports = {
           model: 'usuario',
           required: true
       }
+  },
+    
+  log: function(action, model, usuario, projeto, callback) {
+      Usuario.findOne(usuario).exec(function(err, user) {
+          if (err) {
+              return callback(err);
+          }
+          
+          var activity = {
+                descricao: user.nome + ' ' + action + ' um(a) ' + model,
+                projeto: projeto,
+                usuario: usuario
+              };
+    
+          if (projeto && model !== 'projeto') {
+              activity.descricao += ' no projeto ' + projeto;
+          }
+          
+          Atividade.create(activity).exec(function(err, atividade) {
+              if (err) {
+                  return callback(err);
+              }
+              callback(null, atividade);
+          });      
+      });
   }
 };

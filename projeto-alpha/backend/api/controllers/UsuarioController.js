@@ -42,7 +42,7 @@ module.exports = {
             password = req.body.senha;
         
         if (!email || !password) {
-            return res.badRequest({error: 'e-mail and password is required'});
+            return res.badRequest({error: 'e-mail and password are required'});
         }
         
         password = crypto.createHash('sha1').update(password).digest('hex');

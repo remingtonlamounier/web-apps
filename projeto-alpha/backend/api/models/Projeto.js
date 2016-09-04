@@ -48,5 +48,28 @@ module.exports = {
           
           return obj;
       }
+  },
+    
+  afterCreate: function(insertedRecord, next) {
+      Atividade.log('criou', 'projeto', insertedRecord.usuario, null, function(err, activity) {
+          if (err) {
+              sails.log.error(err);
+          }
+          return next();
+      });
+  },
+    
+  afterDestroy: function(destroyedRecords, next) {
+      var callback = function(err, activity) {
+          if (err) {
+              sails.log.error(err);
+          }
+      };
+      
+      for (var i = 0; i < destroyedRecords.length; i++) {
+          Atividade.log('deletou', 'projeto', destroyedRecords[i].usuario, null, callback);
+      }
+      
+      return next();
   }
 };

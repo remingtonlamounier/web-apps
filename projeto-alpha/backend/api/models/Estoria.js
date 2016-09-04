@@ -37,8 +37,35 @@ module.exports = {
       }
   },
 
-  afterDestroy: function(deleteds, callback) {
-      var ids = deleteds.map(function(item) { return item.id; });
-      Criterio.destroy({estoria: ids}).exec(callback);
+  afterCreate: function(insertedRecord, next) {
+      Atividade.log('criou', 'estória', insertedRecord.usuario, insertedRecord.projeto, function(err, activity) {
+          if (err) {
+              sails.log.error(err);
+          }
+          return next();
+      });
+  },
+    
+  afterDestroy: function(destroyedRecords, next) {
+      var ids = destroyedRecords.map(function(item) { return item.id; });
+      
+      var logErrors = function(err, activity) {
+          if (err) {
+              sails.log.error(err);
+          }
+          return err ? true : false;
+      };
+      
+      Criterio.destroy({estoria: ids}).exec(function(err, criterios) {
+          if (logErrors(err)) {
+              return next();
+          }
+          
+          for (var i = 0; i < destroyedRecords.length; i++) {
+              Atividade.log('deletou', 'estória', destroyedRecords[i].usuario, destroyedRecords[i].projeto, logErrors);
+          }
+
+          return next();
+      });
   }
 };

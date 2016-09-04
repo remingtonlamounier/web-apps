@@ -26,7 +26,7 @@
                     <md-icon class="fa-clock-o"></md-icon>
                     <div class="md-list-item-text">
                         <h4>{{getActivity(item.descricao)}}</h4>
-                        <p>{{timeElapsed(item.datahora)}}</p>
+                        <p>{{timeElapsed(item.createdAt)}}</p>
                     </div>
                     <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
