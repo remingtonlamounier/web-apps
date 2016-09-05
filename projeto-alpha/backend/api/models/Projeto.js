@@ -10,7 +10,7 @@ module.exports = {
   attributes: {
       descricao: {
           type: 'string',
-          size: 300,
+          size: 1024,
           required: true
       },
       urgencia: {
