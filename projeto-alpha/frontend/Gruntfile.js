@@ -117,7 +117,7 @@ module.exports = function (grunt) {
           remove: ['script[data-remove!="false"]','link[data-remove!="false"]'],
           append: [
             {selector:'body',html:'<script src="app.full.min.js"></script>'},
-            {selector:'head',html:'<link rel="stylesheet" href="app.full.min.css">'}
+            {selector:'head',html:'<link rel="stylesheet" href="css/app.full.min.css">'}
           ]
         },
         src:'index.html',
@@ -127,7 +127,7 @@ module.exports = function (grunt) {
     cssmin: {
       main: {
         src:['temp/app.css','<%= dom_munger.data.appcss %>'],
-        dest:'dist/app.full.min.css'
+        dest:'dist/css/app.full.min.css'
       }
     },
     concat: {
