@@ -69,6 +69,10 @@ angular.module('starterapp', ['ui.router', 'ngMaterial', 'ngMask'])
         }
     };
 
+    $rootScope.charsAt = function(text, len) {
+        return text.length < len ? text : text.substring(0, len) + '...';
+    };
+    
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
         var role = auth.getUser().grupo;
         

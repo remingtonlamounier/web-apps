@@ -5,7 +5,7 @@ angular.module('starterapp').controller('LoginCtrl', function($scope, $state, $s
         $mdToast.show(
             $mdToast.simple()
                 .textContent('Sua sessão expirou ou você não tem permissão para acessar a página solicitada')
-                .position('bottom center')
+                .position('top center')
                 .hideDelay(5000)
         );
     }
@@ -20,7 +20,7 @@ angular.module('starterapp').controller('LoginCtrl', function($scope, $state, $s
             $mdToast.show(
                 $mdToast.simple()
                     .textContent(err)
-                    .position('bottom center')
+                    .position('top center')
                     .hideDelay(5000)
             );
         });

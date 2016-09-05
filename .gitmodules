@@ -1,0 +1,3 @@
+[submodule "projeto-alpha/appscompany"]
+	path = projeto-alpha/appscompany
+	url = https://git.heroku.com/appscompany.git

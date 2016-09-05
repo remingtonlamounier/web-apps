@@ -40,7 +40,11 @@
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Telefone</label>
-                <input type="tel" name="telefone" ng-model="usuario.telefone" placeholder="(xx) xxxxx-xxxx" minlength="7" maxlength="15" mask="(99) 9?9999-9999" clean="true" restrict="reject">
+                <input type="tel" name="telefone" ng-model="usuario.telefone" placeholder="(xx) xxxxx-xxxx" maxlength="15" mask="(99) 9?9999-9999" clean="true" restrict="reject">
+                <div ng-messages="newfrm.telefone.$error" role="alert">
+                    <div ng-message="required" ng-hide="!newfrm.telefone.$error.required">Campo obrigatório</div>
+                    <div ng-message="maxlength" ng-hide="!newfrm.telefone.$error.maxlength">O telefone deve ter no máximo 12 dígitos</div>
+                </div>
             </md-input-container>            
             <div layout="column" layout-align="center">
                 <md-button type="submit" class="md-raised md-primary">Criar</md-button>
